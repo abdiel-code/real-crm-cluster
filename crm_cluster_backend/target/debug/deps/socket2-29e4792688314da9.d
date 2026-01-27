@@ -1,0 +1,11 @@
+D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\deps\socket2-29e4792688314da9.d: C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\lib.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sockaddr.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\socket.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sockref.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sys\windows.rs
+
+D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\deps\libsocket2-29e4792688314da9.rlib: C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\lib.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sockaddr.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\socket.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sockref.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sys\windows.rs
+
+D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\deps\libsocket2-29e4792688314da9.rmeta: C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\lib.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sockaddr.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\socket.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sockref.rs C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sys\windows.rs
+
+C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\lib.rs:
+C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sockaddr.rs:
+C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\socket.rs:
+C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sockref.rs:
+C:\Users\Abdie\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\socket2-0.6.2\src\sys\windows.rs:

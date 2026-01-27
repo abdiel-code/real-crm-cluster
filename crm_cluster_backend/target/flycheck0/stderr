@@ -1,0 +1,2086 @@
+   0.315080000s  INFO prepare_target{force=false package_id=crm_cluster_backend v0.1.0 (D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend) target="crm_cluster_backend"}: cargo::core::compiler::fingerprint: fingerprint error for crm_cluster_backend v0.1.0 (D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend)/Check { test: false }/TargetInner { name: "crm_cluster_backend", doc: true, ..: with_path("D:\\Abdiel\\Programación\\Rust\\real-crm-cluster\\crm_cluster_backend\\src\\main.rs", Edition2024) }
+   0.315135400s  INFO prepare_target{force=false package_id=crm_cluster_backend v0.1.0 (D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend) target="crm_cluster_backend"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\crm_cluster_backend-21c17b1b21700bb9\bin-crm_cluster_backend`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+   0.328819600s  INFO prepare_target{force=false package_id=axum v0.8.8 target="axum"}: cargo::core::compiler::fingerprint: fingerprint error for axum v0.8.8/Check { test: false }/TargetInner { ..: lib_target("axum", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\axum-0.8.8\\src\\lib.rs", Edition2021) }
+   0.328847500s  INFO prepare_target{force=false package_id=axum v0.8.8 target="axum"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\axum-26a4acf254e6c237\lib-axum`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.329596100s  INFO prepare_target{force=false package_id=axum-core v0.5.6 target="axum_core"}: cargo::core::compiler::fingerprint: fingerprint error for axum-core v0.5.6/Check { test: false }/TargetInner { ..: lib_target("axum_core", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\axum-core-0.5.6\\src\\lib.rs", Edition2021) }
+   0.329611100s  INFO prepare_target{force=false package_id=axum-core v0.5.6 target="axum_core"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\axum-core-7d95ef4661f02a3c\lib-axum_core`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.338553400s  INFO prepare_target{force=false package_id=futures-util v0.3.31 target="futures_util"}: cargo::core::compiler::fingerprint: fingerprint error for futures-util v0.3.31/Check { test: false }/TargetInner { ..: lib_target("futures_util", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\futures-util-0.3.31\\src\\lib.rs", Edition2018) }
+   0.338583200s  INFO prepare_target{force=false package_id=futures-util v0.3.31 target="futures_util"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\futures-util-e8212f4b9076673f\lib-futures_util`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.341425400s  INFO prepare_target{force=false package_id=hyper v1.8.1 target="hyper"}: cargo::core::compiler::fingerprint: fingerprint error for hyper v1.8.1/Check { test: false }/TargetInner { ..: lib_target("hyper", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\hyper-1.8.1\\src\\lib.rs", Edition2021) }
+   0.341449300s  INFO prepare_target{force=false package_id=hyper v1.8.1 target="hyper"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\hyper-71e068c7f4de58b9\lib-hyper`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.346265600s  INFO prepare_target{force=false package_id=tokio v1.49.0 target="tokio"}: cargo::core::compiler::fingerprint: fingerprint error for tokio v1.49.0/Check { test: false }/TargetInner { ..: lib_target("tokio", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\tokio-1.49.0\\src\\lib.rs", Edition2021) }
+   0.346281300s  INFO prepare_target{force=false package_id=tokio v1.49.0 target="tokio"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\tokio-d5dce40f9d471300\lib-tokio`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.347115700s  INFO prepare_target{force=false package_id=mio v1.1.1 target="mio"}: cargo::core::compiler::fingerprint: fingerprint error for mio v1.1.1/Check { test: false }/TargetInner { ..: lib_target("mio", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\mio-1.1.1\\src\\lib.rs", Edition2021) }
+   0.347134700s  INFO prepare_target{force=false package_id=mio v1.1.1 target="mio"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\mio-c08650ac9ea7aaf7\lib-mio`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.347765200s  INFO prepare_target{force=false package_id=windows-sys v0.61.2 target="windows_sys"}: cargo::core::compiler::fingerprint: fingerprint error for windows-sys v0.61.2/Check { test: false }/TargetInner { tested: false, doctest: false, ..: lib_target("windows_sys", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\windows-sys-0.61.2\\src\\lib.rs", Edition2021) }
+   0.347785400s  INFO prepare_target{force=false package_id=windows-sys v0.61.2 target="windows_sys"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\windows-sys-74a39f9d0c9c4f6f\lib-windows_sys`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.348838700s  INFO prepare_target{force=false package_id=parking_lot v0.12.5 target="parking_lot"}: cargo::core::compiler::fingerprint: fingerprint error for parking_lot v0.12.5/Check { test: false }/TargetInner { ..: lib_target("parking_lot", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\parking_lot-0.12.5\\src\\lib.rs", Edition2021) }
+   0.348856500s  INFO prepare_target{force=false package_id=parking_lot v0.12.5 target="parking_lot"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\parking_lot-5910ba0dc277c5dc\lib-parking_lot`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.350122100s  INFO prepare_target{force=false package_id=parking_lot_core v0.9.12 target="parking_lot_core"}: cargo::core::compiler::fingerprint: fingerprint error for parking_lot_core v0.9.12/Check { test: false }/TargetInner { ..: lib_target("parking_lot_core", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\parking_lot_core-0.9.12\\src\\lib.rs", Edition2021) }
+   0.350140500s  INFO prepare_target{force=false package_id=parking_lot_core v0.9.12 target="parking_lot_core"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\parking_lot_core-92c4125ef63565d9\lib-parking_lot_core`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.356024600s  INFO prepare_target{force=false package_id=hyper-util v0.1.19 target="hyper_util"}: cargo::core::compiler::fingerprint: fingerprint error for hyper-util v0.1.19/Check { test: false }/TargetInner { ..: lib_target("hyper_util", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\hyper-util-0.1.19\\src\\lib.rs", Edition2021) }
+   0.356073800s  INFO prepare_target{force=false package_id=hyper-util v0.1.19 target="hyper_util"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\hyper-util-c690c4b4b3138441\lib-hyper_util`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.359753000s  INFO prepare_target{force=false package_id=serde_path_to_error v0.1.20 target="serde_path_to_error"}: cargo::core::compiler::fingerprint: fingerprint error for serde_path_to_error v0.1.20/Check { test: false }/TargetInner { ..: lib_target("serde_path_to_error", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\serde_path_to_error-0.1.20\\src\\lib.rs", Edition2021) }
+   0.359773600s  INFO prepare_target{force=false package_id=serde_path_to_error v0.1.20 target="serde_path_to_error"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\serde_path_to_error-7bb49b223eefe476\lib-serde_path_to_error`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.360224900s  INFO prepare_target{force=false package_id=serde_urlencoded v0.7.1 target="serde_urlencoded"}: cargo::core::compiler::fingerprint: fingerprint error for serde_urlencoded v0.7.1/Check { test: false }/TargetInner { name_inferred: true, tested: false, ..: lib_target("serde_urlencoded", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\serde_urlencoded-0.7.1\\src\\lib.rs", Edition2018) }
+   0.360240300s  INFO prepare_target{force=false package_id=serde_urlencoded v0.7.1 target="serde_urlencoded"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\serde_urlencoded-bd42680fc8131897\lib-serde_urlencoded`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.360939700s  INFO prepare_target{force=false package_id=tower v0.5.3 target="tower"}: cargo::core::compiler::fingerprint: fingerprint error for tower v0.5.3/Check { test: false }/TargetInner { ..: lib_target("tower", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\tower-0.5.3\\src\\lib.rs", Edition2018) }
+   0.360954300s  INFO prepare_target{force=false package_id=tower v0.5.3 target="tower"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\tower-92ec57bf314bc486\lib-tower`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.361517100s  INFO prepare_target{force=false package_id=bigdecimal v0.4.10 target="bigdecimal"}: cargo::core::compiler::fingerprint: fingerprint error for bigdecimal v0.4.10/Check { test: false }/TargetInner { benched: false, ..: lib_target("bigdecimal", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\bigdecimal-0.4.10\\src\\lib.rs", Edition2015) }
+   0.361532700s  INFO prepare_target{force=false package_id=bigdecimal v0.4.10 target="bigdecimal"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\bigdecimal-4d67a979f85123a2\lib-bigdecimal`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.367141100s  INFO prepare_target{force=false package_id=chrono v0.4.43 target="chrono"}: cargo::core::compiler::fingerprint: fingerprint error for chrono v0.4.43/Check { test: false }/TargetInner { ..: lib_target("chrono", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\chrono-0.4.43\\src\\lib.rs", Edition2021) }
+   0.367174200s  INFO prepare_target{force=false package_id=chrono v0.4.43 target="chrono"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\chrono-8b551e9ada843461\lib-chrono`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.368329600s  INFO prepare_target{force=false package_id=sqlx v0.8.6 target="sqlx"}: cargo::core::compiler::fingerprint: fingerprint error for sqlx v0.8.6/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("sqlx", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sqlx-0.8.6\\src\\lib.rs", Edition2021) }
+   0.368350600s  INFO prepare_target{force=false package_id=sqlx v0.8.6 target="sqlx"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\sqlx-fc6f0847402271b8\lib-sqlx`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.370259600s  INFO prepare_target{force=false package_id=sqlx-core v0.8.6 target="sqlx_core"}: cargo::core::compiler::fingerprint: fingerprint error for sqlx-core v0.8.6/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("sqlx_core", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sqlx-core-0.8.6\\src\\lib.rs", Edition2021) }
+   0.370291700s  INFO prepare_target{force=false package_id=sqlx-core v0.8.6 target="sqlx_core"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\sqlx-core-d3c3e238f2227797\lib-sqlx_core`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.371654800s  INFO prepare_target{force=false package_id=base64 v0.22.1 target="base64"}: cargo::core::compiler::fingerprint: fingerprint error for base64 v0.22.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("base64", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\base64-0.22.1\\src\\lib.rs", Edition2018) }
+   0.371679000s  INFO prepare_target{force=false package_id=base64 v0.22.1 target="base64"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\base64-7911720e63a40aee\lib-base64`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.374167900s  INFO prepare_target{force=false package_id=crossbeam-queue v0.3.12 target="crossbeam_queue"}: cargo::core::compiler::fingerprint: fingerprint error for crossbeam-queue v0.3.12/Check { test: false }/TargetInner { ..: lib_target("crossbeam_queue", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\crossbeam-queue-0.3.12\\src\\lib.rs", Edition2021) }
+   0.374196000s  INFO prepare_target{force=false package_id=crossbeam-queue v0.3.12 target="crossbeam_queue"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\crossbeam-queue-d49ec7e901e62bb1\lib-crossbeam_queue`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.375890500s  INFO prepare_target{force=false package_id=either v1.15.0 target="either"}: cargo::core::compiler::fingerprint: fingerprint error for either v1.15.0/Check { test: false }/TargetInner { ..: lib_target("either", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\either-1.15.0\\src\\lib.rs", Edition2021) }
+   0.375906900s  INFO prepare_target{force=false package_id=either v1.15.0 target="either"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\either-b286a3a290a3adb7\lib-either`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.377143800s  INFO prepare_target{force=false package_id=futures-intrusive v0.5.0 target="futures_intrusive"}: cargo::core::compiler::fingerprint: fingerprint error for futures-intrusive v0.5.0/Check { test: false }/TargetInner { ..: lib_target("futures_intrusive", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\futures-intrusive-0.5.0\\src\\lib.rs", Edition2018) }
+   0.377166300s  INFO prepare_target{force=false package_id=futures-intrusive v0.5.0 target="futures_intrusive"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\futures-intrusive-fdf3aac311d408f3\lib-futures_intrusive`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.378651500s  INFO prepare_target{force=false package_id=hashlink v0.10.0 target="hashlink"}: cargo::core::compiler::fingerprint: fingerprint error for hashlink v0.10.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("hashlink", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\hashlink-0.10.0\\src\\lib.rs", Edition2018) }
+   0.378668600s  INFO prepare_target{force=false package_id=hashlink v0.10.0 target="hashlink"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\hashlink-fba069f74f4aca4d\lib-hashlink`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.379153200s  INFO prepare_target{force=false package_id=indexmap v2.13.0 target="indexmap"}: cargo::core::compiler::fingerprint: fingerprint error for indexmap v2.13.0/Check { test: false }/TargetInner { benched: false, ..: lib_target("indexmap", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\indexmap-2.13.0\\src\\lib.rs", Edition2021) }
+   0.379169000s  INFO prepare_target{force=false package_id=indexmap v2.13.0 target="indexmap"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\indexmap-92240143c7b1838a\lib-indexmap`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.379897300s  INFO prepare_target{force=false package_id=rustls v0.23.36 target="rustls"}: cargo::core::compiler::fingerprint: fingerprint error for rustls v0.23.36/Check { test: false }/TargetInner { ..: lib_target("rustls", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\rustls-0.23.36\\src\\lib.rs", Edition2021) }
+   0.379913400s  INFO prepare_target{force=false package_id=rustls v0.23.36 target="rustls"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\rustls-634465ccc939616c\lib-rustls`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.390973700s  INFO prepare_target{force=false package_id=thiserror v2.0.18 target="thiserror"}: cargo::core::compiler::fingerprint: fingerprint error for thiserror v2.0.18/Check { test: false }/TargetInner { ..: lib_target("thiserror", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\thiserror-2.0.18\\src\\lib.rs", Edition2021) }
+   0.391005300s  INFO prepare_target{force=false package_id=thiserror v2.0.18 target="thiserror"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\thiserror-7df95b3261432e00\lib-thiserror`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.392757100s  INFO prepare_target{force=false package_id=tokio-stream v0.1.18 target="tokio_stream"}: cargo::core::compiler::fingerprint: fingerprint error for tokio-stream v0.1.18/Check { test: false }/TargetInner { ..: lib_target("tokio_stream", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\tokio-stream-0.1.18\\src\\lib.rs", Edition2021) }
+   0.392776100s  INFO prepare_target{force=false package_id=tokio-stream v0.1.18 target="tokio_stream"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\tokio-stream-1b7295a88f7447e5\lib-tokio_stream`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.393380600s  INFO prepare_target{force=false package_id=url v2.5.8 target="url"}: cargo::core::compiler::fingerprint: fingerprint error for url v2.5.8/Check { test: false }/TargetInner { ..: lib_target("url", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\url-2.5.8\\src\\lib.rs", Edition2018) }
+   0.393396100s  INFO prepare_target{force=false package_id=url v2.5.8 target="url"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\url-0e51c2a75ce1f5ed\lib-url`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.393935200s  INFO prepare_target{force=false package_id=idna v1.1.0 target="idna"}: cargo::core::compiler::fingerprint: fingerprint error for idna v1.1.0/Check { test: false }/TargetInner { doctest: false, ..: lib_target("idna", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\idna-1.1.0\\src\\lib.rs", Edition2018) }
+   0.393949700s  INFO prepare_target{force=false package_id=idna v1.1.0 target="idna"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\idna-d11339c8ab3705b7\lib-idna`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.394421000s  INFO prepare_target{force=false package_id=idna_adapter v1.2.1 target="idna_adapter"}: cargo::core::compiler::fingerprint: fingerprint error for idna_adapter v1.2.1/Check { test: false }/TargetInner { ..: lib_target("idna_adapter", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\idna_adapter-1.2.1\\src\\lib.rs", Edition2021) }
+   0.394439200s  INFO prepare_target{force=false package_id=idna_adapter v1.2.1 target="idna_adapter"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\idna_adapter-5833b1679f374ce2\lib-idna_adapter`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.394894200s  INFO prepare_target{force=false package_id=icu_normalizer v2.1.1 target="icu_normalizer"}: cargo::core::compiler::fingerprint: fingerprint error for icu_normalizer v2.1.1/Check { test: false }/TargetInner { ..: lib_target("icu_normalizer", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\icu_normalizer-2.1.1\\src\\lib.rs", Edition2021) }
+   0.394911600s  INFO prepare_target{force=false package_id=icu_normalizer v2.1.1 target="icu_normalizer"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\icu_normalizer-f3575bcd18a0ccd2\lib-icu_normalizer`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.400479900s  INFO prepare_target{force=false package_id=icu_properties v2.1.2 target="icu_properties"}: cargo::core::compiler::fingerprint: fingerprint error for icu_properties v2.1.2/Check { test: false }/TargetInner { ..: lib_target("icu_properties", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\icu_properties-2.1.2\\src\\lib.rs", Edition2021) }
+   0.400517800s  INFO prepare_target{force=false package_id=icu_properties v2.1.2 target="icu_properties"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\icu_properties-3716532e3a89db67\lib-icu_properties`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.403869800s  INFO prepare_target{force=false package_id=webpki-roots v0.26.11 target="webpki_roots"}: cargo::core::compiler::fingerprint: fingerprint error for webpki-roots v0.26.11/Check { test: false }/TargetInner { ..: lib_target("webpki_roots", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\webpki-roots-0.26.11\\src\\lib.rs", Edition2021) }
+   0.403914600s  INFO prepare_target{force=false package_id=webpki-roots v0.26.11 target="webpki_roots"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\webpki-roots-ae69336cc48d8259\lib-webpki_roots`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.404909500s  INFO prepare_target{force=false package_id=sqlx-macros v0.8.6 target="sqlx_macros"}: cargo::core::compiler::fingerprint: fingerprint error for sqlx-macros v0.8.6/Build/TargetInner { name_inferred: true, for_host: true, proc_macro: true, ..: lib_target("sqlx_macros", ["proc-macro"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sqlx-macros-0.8.6\\src\\lib.rs", Edition2021) }
+   0.404933200s  INFO prepare_target{force=false package_id=sqlx-macros v0.8.6 target="sqlx_macros"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\sqlx-macros-ca322accfd6eb717\lib-sqlx_macros`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.407682800s  INFO prepare_target{force=false package_id=sqlx-core v0.8.6 target="sqlx_core"}: cargo::core::compiler::fingerprint: fingerprint error for sqlx-core v0.8.6/Build/TargetInner { name_inferred: true, ..: lib_target("sqlx_core", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sqlx-core-0.8.6\\src\\lib.rs", Edition2021) }
+   0.407724300s  INFO prepare_target{force=false package_id=sqlx-core v0.8.6 target="sqlx_core"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\sqlx-core-b0600e36a5faabbf\lib-sqlx_core`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.427001500s  INFO prepare_target{force=false package_id=tokio v1.49.0 target="tokio"}: cargo::core::compiler::fingerprint: fingerprint error for tokio v1.49.0/Build/TargetInner { ..: lib_target("tokio", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\tokio-1.49.0\\src\\lib.rs", Edition2021) }
+   0.427029500s  INFO prepare_target{force=false package_id=tokio v1.49.0 target="tokio"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\tokio-4212a948d9b9f09c\lib-tokio`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.427766700s  INFO prepare_target{force=false package_id=mio v1.1.1 target="mio"}: cargo::core::compiler::fingerprint: fingerprint error for mio v1.1.1/Build/TargetInner { ..: lib_target("mio", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\mio-1.1.1\\src\\lib.rs", Edition2021) }
+   0.427785000s  INFO prepare_target{force=false package_id=mio v1.1.1 target="mio"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\mio-61898318cc1e910a\lib-mio`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.428222600s  INFO prepare_target{force=false package_id=windows-sys v0.61.2 target="windows_sys"}: cargo::core::compiler::fingerprint: fingerprint error for windows-sys v0.61.2/Build/TargetInner { tested: false, doctest: false, ..: lib_target("windows_sys", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\windows-sys-0.61.2\\src\\lib.rs", Edition2021) }
+   0.428237600s  INFO prepare_target{force=false package_id=windows-sys v0.61.2 target="windows_sys"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\windows-sys-8bb2873f431dc815\lib-windows_sys`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.429683800s  INFO prepare_target{force=false package_id=tokio-stream v0.1.18 target="tokio_stream"}: cargo::core::compiler::fingerprint: fingerprint error for tokio-stream v0.1.18/Build/TargetInner { ..: lib_target("tokio_stream", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\tokio-stream-0.1.18\\src\\lib.rs", Edition2021) }
+   0.429698100s  INFO prepare_target{force=false package_id=tokio-stream v0.1.18 target="tokio_stream"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\tokio-stream-fe86abe164bb50da\lib-tokio_stream`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.437779500s  INFO prepare_target{force=false package_id=sqlx-macros-core v0.8.6 target="sqlx_macros_core"}: cargo::core::compiler::fingerprint: fingerprint error for sqlx-macros-core v0.8.6/Build/TargetInner { name_inferred: true, ..: lib_target("sqlx_macros_core", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sqlx-macros-core-0.8.6\\src\\lib.rs", Edition2021) }
+   0.437858500s  INFO prepare_target{force=false package_id=sqlx-macros-core v0.8.6 target="sqlx_macros_core"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\sqlx-macros-core-aa38efc7ddec6d15\lib-sqlx_macros_core`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.442044300s  INFO prepare_target{force=false package_id=sqlx-postgres v0.8.6 target="sqlx_postgres"}: cargo::core::compiler::fingerprint: fingerprint error for sqlx-postgres v0.8.6/Build/TargetInner { name_inferred: true, ..: lib_target("sqlx_postgres", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sqlx-postgres-0.8.6\\src\\lib.rs", Edition2021) }
+   0.442081600s  INFO prepare_target{force=false package_id=sqlx-postgres v0.8.6 target="sqlx_postgres"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\sqlx-postgres-8ef150870e3c12bd\lib-sqlx_postgres`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.443924600s  INFO prepare_target{force=false package_id=etcetera v0.8.0 target="etcetera"}: cargo::core::compiler::fingerprint: fingerprint error for etcetera v0.8.0/Build/TargetInner { name_inferred: true, ..: lib_target("etcetera", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\etcetera-0.8.0\\src\\lib.rs", Edition2018) }
+   0.443942800s  INFO prepare_target{force=false package_id=etcetera v0.8.0 target="etcetera"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\etcetera-3d82794764ce6d81\lib-etcetera`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.444477000s  INFO prepare_target{force=false package_id=home v0.5.12 target="home"}: cargo::core::compiler::fingerprint: fingerprint error for home v0.5.12/Build/TargetInner { ..: lib_target("home", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\home-0.5.12\\src\\lib.rs", Edition2024) }
+   0.444492300s  INFO prepare_target{force=false package_id=home v0.5.12 target="home"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\home-e8af303d3f56234e\lib-home`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.451735000s  INFO prepare_target{force=false package_id=sqlx-postgres v0.8.6 target="sqlx_postgres"}: cargo::core::compiler::fingerprint: fingerprint error for sqlx-postgres v0.8.6/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("sqlx_postgres", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\sqlx-postgres-0.8.6\\src\\lib.rs", Edition2021) }
+   0.451766800s  INFO prepare_target{force=false package_id=sqlx-postgres v0.8.6 target="sqlx_postgres"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\sqlx-postgres-d6d7ae277e96be23\lib-sqlx_postgres`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_libgit2_prerelease
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: git_midx_writer_dump
+  19: git_filter_source_repo
+  20: git_midx_writer_dump
+  21: BaseThreadInitThunk
+  22: RtlUserThreadStart
+   0.453514900s  INFO prepare_target{force=false package_id=atoi v2.0.0 target="atoi"}: cargo::core::compiler::fingerprint: fingerprint error for atoi v2.0.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("atoi", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\atoi-2.0.0\\src\\lib.rs", Edition2021) }
+   0.453544300s  INFO prepare_target{force=false package_id=atoi v2.0.0 target="atoi"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\atoi-63931648e770eab8\lib-atoi`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.454071300s  INFO prepare_target{force=false package_id=bitflags v2.10.0 target="bitflags"}: cargo::core::compiler::fingerprint: fingerprint error for bitflags v2.10.0/Check { test: false }/TargetInner { ..: lib_target("bitflags", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\bitflags-2.10.0\\src\\lib.rs", Edition2021) }
+   0.454088400s  INFO prepare_target{force=false package_id=bitflags v2.10.0 target="bitflags"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\bitflags-7711d02a91a4308f\lib-bitflags`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.454511600s  INFO prepare_target{force=false package_id=byteorder v1.5.0 target="byteorder"}: cargo::core::compiler::fingerprint: fingerprint error for byteorder v1.5.0/Check { test: false }/TargetInner { benched: false, ..: lib_target("byteorder", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\byteorder-1.5.0\\src\\lib.rs", Edition2021) }
+   0.454528100s  INFO prepare_target{force=false package_id=byteorder v1.5.0 target="byteorder"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\byteorder-cd2367b040281529\lib-byteorder`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.454917000s  INFO prepare_target{force=false package_id=etcetera v0.8.0 target="etcetera"}: cargo::core::compiler::fingerprint: fingerprint error for etcetera v0.8.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("etcetera", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\etcetera-0.8.0\\src\\lib.rs", Edition2018) }
+   0.454931300s  INFO prepare_target{force=false package_id=etcetera v0.8.0 target="etcetera"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\etcetera-7eda3dfd45a5bc5c\lib-etcetera`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.455618100s  INFO prepare_target{force=false package_id=home v0.5.12 target="home"}: cargo::core::compiler::fingerprint: fingerprint error for home v0.5.12/Check { test: false }/TargetInner { ..: lib_target("home", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\home-0.5.12\\src\\lib.rs", Edition2024) }
+   0.455657500s  INFO prepare_target{force=false package_id=home v0.5.12 target="home"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\home-b9e9459c12a5e8ac\lib-home`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.456561800s  INFO prepare_target{force=false package_id=windows-sys v0.48.0 target="windows_sys"}: cargo::core::compiler::fingerprint: fingerprint error for windows-sys v0.48.0/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("windows_sys", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\windows-sys-0.48.0\\src\\lib.rs", Edition2018) }
+   0.456589400s  INFO prepare_target{force=false package_id=windows-sys v0.48.0 target="windows_sys"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\windows-sys-6ea683c5fefce16d\lib-windows_sys`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.458028800s  INFO prepare_target{force=false package_id=hex v0.4.3 target="hex"}: cargo::core::compiler::fingerprint: fingerprint error for hex v0.4.3/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("hex", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\hex-0.4.3\\src\\lib.rs", Edition2018) }
+   0.458044100s  INFO prepare_target{force=false package_id=hex v0.4.3 target="hex"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\hex-d4a283982498179f\lib-hex`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.458432200s  INFO prepare_target{force=false package_id=hkdf v0.12.4 target="hkdf"}: cargo::core::compiler::fingerprint: fingerprint error for hkdf v0.12.4/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("hkdf", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\hkdf-0.12.4\\src\\lib.rs", Edition2018) }
+   0.458446300s  INFO prepare_target{force=false package_id=hkdf v0.12.4 target="hkdf"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\hkdf-8eebd71e82260d69\lib-hkdf`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.458872400s  INFO prepare_target{force=false package_id=hmac v0.12.1 target="hmac"}: cargo::core::compiler::fingerprint: fingerprint error for hmac v0.12.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("hmac", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\hmac-0.12.1\\src\\lib.rs", Edition2018) }
+   0.458886800s  INFO prepare_target{force=false package_id=hmac v0.12.1 target="hmac"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\hmac-4abc659068fd12b0\lib-hmac`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.459337800s  INFO prepare_target{force=false package_id=md-5 v0.10.6 target="md5"}: cargo::core::compiler::fingerprint: fingerprint error for md-5 v0.10.6/Check { test: false }/TargetInner { ..: lib_target("md5", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\md-5-0.10.6\\src\\lib.rs", Edition2018) }
+   0.459352900s  INFO prepare_target{force=false package_id=md-5 v0.10.6 target="md5"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\md-5-3c1b8a9526ce149c\lib-md5`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.459861800s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint: fingerprint error for rand v0.8.5/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\rand-0.8.5\\src\\lib.rs", Edition2018) }
+   0.459876700s  INFO prepare_target{force=false package_id=rand v0.8.5 target="rand"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\rand-876ed055b86df37f\lib-rand`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.460316900s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint: fingerprint error for rand_chacha v0.3.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rand_chacha", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\rand_chacha-0.3.1\\src\\lib.rs", Edition2018) }
+   0.460331600s  INFO prepare_target{force=false package_id=rand_chacha v0.3.1 target="rand_chacha"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\rand_chacha-7c53986093c225b8\lib-rand_chacha`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.460725500s  INFO prepare_target{force=false package_id=ppv-lite86 v0.2.21 target="ppv_lite86"}: cargo::core::compiler::fingerprint: fingerprint error for ppv-lite86 v0.2.21/Check { test: false }/TargetInner { ..: lib_target("ppv_lite86", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\ppv-lite86-0.2.21\\src\\lib.rs", Edition2021) }
+   0.460743600s  INFO prepare_target{force=false package_id=ppv-lite86 v0.2.21 target="ppv_lite86"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\ppv-lite86-35d34f695da78d86\lib-ppv_lite86`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_libgit2_prerelease
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: git_midx_writer_dump
+  22: git_filter_source_repo
+  23: git_midx_writer_dump
+  24: BaseThreadInitThunk
+  25: RtlUserThreadStart
+   0.461126400s  INFO prepare_target{force=false package_id=zerocopy v0.8.34 target="zerocopy"}: cargo::core::compiler::fingerprint: fingerprint error for zerocopy v0.8.34/Check { test: false }/TargetInner { ..: lib_target("zerocopy", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\zerocopy-0.8.34\\src\\lib.rs", Edition2021) }
+   0.461140200s  INFO prepare_target{force=false package_id=zerocopy v0.8.34 target="zerocopy"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\zerocopy-c914c8a64f886e55\lib-zerocopy`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_filter_source_repo
+  16: git_filter_source_repo
+  17: git_libgit2_prerelease
+  18: <unknown>
+  19: <unknown>
+  20: <unknown>
+  21: <unknown>
+  22: git_midx_writer_dump
+  23: git_filter_source_repo
+  24: git_midx_writer_dump
+  25: BaseThreadInitThunk
+  26: RtlUserThreadStart
+   0.461783000s  INFO prepare_target{force=false package_id=stringprep v0.1.5 target="stringprep"}: cargo::core::compiler::fingerprint: fingerprint error for stringprep v0.1.5/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("stringprep", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\stringprep-0.1.5\\src\\lib.rs", Edition2015) }
+   0.461798300s  INFO prepare_target{force=false package_id=stringprep v0.1.5 target="stringprep"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\stringprep-d331a8de6306f29c\lib-stringprep`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.462184800s  INFO prepare_target{force=false package_id=unicode-bidi v0.3.18 target="unicode_bidi"}: cargo::core::compiler::fingerprint: fingerprint error for unicode-bidi v0.3.18/Check { test: false }/TargetInner { ..: lib_target("unicode_bidi", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\unicode-bidi-0.3.18\\src\\lib.rs", Edition2018) }
+   0.462198900s  INFO prepare_target{force=false package_id=unicode-bidi v0.3.18 target="unicode_bidi"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\unicode-bidi-3565aca5d78db65d\lib-unicode_bidi`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.462594100s  INFO prepare_target{force=false package_id=unicode-normalization v0.1.25 target="unicode_normalization"}: cargo::core::compiler::fingerprint: fingerprint error for unicode-normalization v0.1.25/Check { test: false }/TargetInner { ..: lib_target("unicode_normalization", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\unicode-normalization-0.1.25\\src\\lib.rs", Edition2018) }
+   0.462608400s  INFO prepare_target{force=false package_id=unicode-normalization v0.1.25 target="unicode_normalization"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\unicode-normalization-60020b1a44742591\lib-unicode_normalization`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.463391500s  INFO prepare_target{force=false package_id=unicode-properties v0.1.4 target="unicode_properties"}: cargo::core::compiler::fingerprint: fingerprint error for unicode-properties v0.1.4/Check { test: false }/TargetInner { ..: lib_target("unicode_properties", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\unicode-properties-0.1.4\\src\\lib.rs", Edition2021) }
+   0.463405700s  INFO prepare_target{force=false package_id=unicode-properties v0.1.4 target="unicode_properties"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\unicode-properties-e5e48588cf37c88b\lib-unicode_properties`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_filter_source_repo
+  15: git_libgit2_prerelease
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: <unknown>
+  20: git_midx_writer_dump
+  21: git_filter_source_repo
+  22: git_midx_writer_dump
+  23: BaseThreadInitThunk
+  24: RtlUserThreadStart
+   0.463813400s  INFO prepare_target{force=false package_id=whoami v1.6.1 target="whoami"}: cargo::core::compiler::fingerprint: fingerprint error for whoami v1.6.1/Check { test: false }/TargetInner { ..: lib_target("whoami", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\whoami-1.6.1\\src\\lib.rs", Edition2018) }
+   0.463827600s  INFO prepare_target{force=false package_id=whoami v1.6.1 target="whoami"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\whoami-dafd16425d514ebd\lib-whoami`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_filter_source_repo
+  13: git_filter_source_repo
+  14: git_libgit2_prerelease
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+  19: git_midx_writer_dump
+  20: git_filter_source_repo
+  21: git_midx_writer_dump
+  22: BaseThreadInitThunk
+  23: RtlUserThreadStart
+   0.464190400s  INFO prepare_target{force=false package_id=tower-http v0.6.8 target="tower_http"}: cargo::core::compiler::fingerprint: fingerprint error for tower-http v0.6.8/Check { test: false }/TargetInner { ..: lib_target("tower_http", ["lib"], "C:\\Users\\Abdie\\.cargo\\registry\\src\\index.crates.io-1949cf8c6b5b557f\\tower-http-0.6.8\\src\\lib.rs", Edition2018) }
+   0.464204200s  INFO prepare_target{force=false package_id=tower-http v0.6.8 target="tower_http"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\tower-http-f607c3caa327e6a5\lib-tower_http`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_filter_source_repo
+  12: git_libgit2_prerelease
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: git_midx_writer_dump
+  18: git_filter_source_repo
+  19: git_midx_writer_dump
+  20: BaseThreadInitThunk
+  21: RtlUserThreadStart
+   0.464758900s  INFO prepare_target{force=false package_id=crm_cluster_backend v0.1.0 (D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend) target="crm_cluster_backend"}: cargo::core::compiler::fingerprint: fingerprint error for crm_cluster_backend v0.1.0 (D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend)/Check { test: true }/TargetInner { name: "crm_cluster_backend", doc: true, ..: with_path("D:\\Abdiel\\Programación\\Rust\\real-crm-cluster\\crm_cluster_backend\\src\\main.rs", Edition2024) }
+   0.464776800s  INFO prepare_target{force=false package_id=crm_cluster_backend v0.1.0 (D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend) target="crm_cluster_backend"}: cargo::core::compiler::fingerprint:     err: failed to read `D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend\target\debug\.fingerprint\crm_cluster_backend-1e1fd1a78db9b1cf\test-bin-crm_cluster_backend`
+
+Caused by:
+    El sistema no puede encontrar el archivo especificado. (os error 2)
+
+Stack backtrace:
+   0: git_midx_writer_dump
+   1: git_midx_writer_dump
+   2: git_midx_writer_dump
+   3: git_midx_writer_dump
+   4: git_filter_source_repo
+   5: git_filter_source_repo
+   6: git_filter_source_repo
+   7: git_filter_source_repo
+   8: git_filter_source_repo
+   9: git_filter_source_repo
+  10: git_filter_source_repo
+  11: git_libgit2_prerelease
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: git_midx_writer_dump
+  17: git_filter_source_repo
+  18: git_midx_writer_dump
+  19: BaseThreadInitThunk
+  20: RtlUserThreadStart
+    Checking windows-sys v0.61.2
+    Checking parking_lot_core v0.9.12
+    Checking icu_properties v2.1.2
+    Checking icu_normalizer v2.1.1
+    Checking futures-util v0.3.31
+    Checking zerocopy v0.8.34
+    Checking indexmap v2.13.0
+    Checking webpki-roots v0.26.11
+    Checking bigdecimal v0.4.10
+    Checking rustls v0.23.36
+    Checking windows-sys v0.48.0
+    Checking hashlink v0.10.0
+    Checking parking_lot v0.12.5
+    Checking unicode-normalization v0.1.25
+    Checking futures-intrusive v0.5.0
+    Checking crossbeam-queue v0.3.12
+    Checking hmac v0.12.1
+    Checking chrono v0.4.43
+    Checking idna_adapter v1.2.1
+    Checking thiserror v2.0.18
+    Checking either v1.15.0
+    Checking unicode-bidi v0.3.18
+    Checking unicode-properties v0.1.4
+    Checking base64 v0.22.1
+    Checking idna v1.1.0
+    Checking bitflags v2.10.0
+    Checking hkdf v0.12.4
+    Checking stringprep v0.1.5
+    Checking md-5 v0.10.6
+    Checking url v2.5.8
+    Checking atoi v2.0.0
+    Checking hex v0.4.3
+    Checking byteorder v1.5.0
+    Checking whoami v1.6.1
+    Checking axum-core v0.5.6
+    Checking serde_urlencoded v0.7.1
+    Checking serde_path_to_error v0.1.20
+    Checking tower-http v0.6.8
+    Checking ppv-lite86 v0.2.21
+    Checking rand_chacha v0.3.1
+    Checking rand v0.8.5
+   Compiling mio v1.1.1
+   Compiling home v0.5.12
+   Compiling etcetera v0.8.0
+   Compiling tokio v1.49.0
+   Compiling tokio-stream v0.1.18
+    Checking hyper v1.8.1
+    Checking tower v0.5.3
+   Compiling sqlx-core v0.8.6
+    Checking hyper-util v0.1.19
+    Checking axum v0.8.8
+    Checking sqlx-postgres v0.8.6
+   Compiling sqlx-macros-core v0.8.6
+   Compiling sqlx-macros v0.8.6
+    Checking sqlx v0.8.6
+    Checking crm_cluster_backend v0.1.0 (D:\Abdiel\Programación\Rust\real-crm-cluster\crm_cluster_backend)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 25.52s
