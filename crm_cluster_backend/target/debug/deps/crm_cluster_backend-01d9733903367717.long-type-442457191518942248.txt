@@ -1,0 +1,1 @@
+fn(axum::extract::State<Arc<AppState>>, axum::Json<CreateAccount>) -> impl Future<Output = Result<impl IntoResponse, (StatusCode, std::string::String)>> {create_account}
