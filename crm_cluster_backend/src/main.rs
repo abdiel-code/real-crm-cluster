@@ -63,6 +63,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .route("/ws", get(handlers::socket_handler::ws_handler))
         .nest("/accounts", handlers::account_handler::router())
         .nest("/businesses", handlers::business_handler::router())
+        .nest("/contacts", handlers::contact_handler::router())
         .layer(cors)
         .with_state(shared_state);
 

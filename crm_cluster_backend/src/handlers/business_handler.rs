@@ -29,6 +29,17 @@ pub struct CreateBusiness {
     pub stage: Stage,
 }
 
+pub async fn count_businesses(
+    State(state): State<Arc<AppState>>
+) -> Result<impl IntoResponse, (StatusCode, String)> {
+    let count: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM businesses")
+        .fetch_one(&state.db_pool)
+        .await
+        .map_err(|e| (StatusCode::INTERNAL_SERVER_ERROR, format!("COUNT_BUSINESSES_ERROR: {}", e)))?;
+
+    Ok(Json(serde_json::json!({"message": "SUCCESS", "payload": count})))
+}
+
 pub async fn get_businesses(
     State(state): State<Arc<AppState>>
 ) -> Result<impl IntoResponse, (StatusCode, String)> {
@@ -136,6 +147,7 @@ pub async fn update_business_by_id(
 
 pub fn router() -> Router<Arc<AppState>> {
     Router::new()
+        .route("/count", get(count_businesses))
         .route("/", get(get_businesses).post(create_business))
         .route("/{business_id}", get(get_business_by_id).delete(delete_business_by_id).put(update_business_by_id))
 }

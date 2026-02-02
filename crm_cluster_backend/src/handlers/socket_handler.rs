@@ -1,6 +1,6 @@
 // src/handlers/socket_handler.rs
 use axum::{
-    extract::{State, ws::{Message, Utf8Bytes, WebSocket, WebSocketUpgrade}},
+    extract::{State, ws::{Message,WebSocket, WebSocketUpgrade}},
     response::IntoResponse,
 };
 use std::sync::Arc;
