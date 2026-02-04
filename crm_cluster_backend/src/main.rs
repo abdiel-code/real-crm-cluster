@@ -64,6 +64,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .nest("/accounts", handlers::account_handler::router())
         .nest("/businesses", handlers::business_handler::router())
         .nest("/contacts", handlers::contact_handler::router())
+        .nest("/dashboard", handlers::dashboard_handler::router())
         .layer(cors)
         .with_state(shared_state);
 
