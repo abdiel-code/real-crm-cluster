@@ -1,6 +1,6 @@
 'use client';
-import { motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { useEffect } from 'react';
 
 type GraphCardProps = {
   total?: number;
@@ -10,9 +10,21 @@ type GraphCardProps = {
 };
 
 const GraphCard = (props: GraphCardProps) => {
+  // Variables
+  const count = useMotionValue(0);
+  const springValue = useSpring(count, {
+    stiffness: 50,
+    damping: 15,
+    restDelta: 0.01,
+  });
+  const rounded = useTransform(springValue, (latest) => Math.floor(latest));
+
   const history = props.history || [0, 0, 0, 0, 0, 0, 0];
-  const [displayValue, setDisplayValue] = useState(0);
   const maxValue = Math.max(...history) || 1;
+  const lastValue = history[history.length - 1] || 0;
+  const prevValue = history[history.length - 2] || 0;
+  const trend =
+    prevValue === 0 ? 0 : ((lastValue - prevValue) / prevValue) * 100;
 
   const points = history
     .map((value, index) => {
@@ -22,26 +34,12 @@ const GraphCard = (props: GraphCardProps) => {
     })
     .join(' ');
 
+  // Functions
+
+  // Effects
   useEffect(() => {
-    if (!props.total) return;
-
-    let start = 0;
-    const end = props.total;
-    const duration = 1000;
-    const increment = end / (duration / 16);
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        setDisplayValue(end);
-        clearInterval(timer);
-      } else {
-        setDisplayValue(Math.floor(start));
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [props.total]);
+    count.set(props.total || 0);
+  }, [props.total, count]);
 
   return (
     <motion.div
@@ -82,8 +80,24 @@ const GraphCard = (props: GraphCardProps) => {
       className="bg-[#00d4ff1a] backdrop-blur-xs rounded-md border-2 border-[#00d4ff40] hover:border-[#00d4ff80] hover:shadow-[0_0_20px_rgba(0,212,255,0.3)]
         p-6 shadow-md flex flex-col items-center justify-center cursor-pointer hover:backdrop-blur-sm"
     >
-      <h3 className="text-white font-bold">{props.title}</h3>
-      <p className="text-3xl font-bold">{displayValue.toLocaleString()}</p>
+      <div className="w-full flex justify-between items-start mb-2">
+        <h3 className="text-white/70 text-xs font-bold uppercase tracking-wider">
+          {props.title}
+        </h3>
+        <span
+          className={`text-sm font-mono px-1.5 py-0.5 rounded border ${
+            trend >= 0
+              ? 'text-cyan-400 border-cyan-400/30 bg-cyan-400/10'
+              : 'text-orange-400 border-orange-400/30 bg-orange-400/10'
+          }`}
+        >
+          {trend > 0 ? '▲' : '▼'} {Math.abs(trend).toFixed(1)}%
+        </span>
+      </div>
+      <motion.p
+        className="text-4xl font-mono font-bold text-white self-start"
+        children={rounded}
+      />
 
       <div className="w-full h-16 mt-4">
         <svg
@@ -106,6 +120,12 @@ const GraphCard = (props: GraphCardProps) => {
             }}
           />
         </svg>
+        <div className="w-full flex justify-between mt-1 px-1">
+          <span className="text-sm text-white/30 font-mono">7D AGO</span>
+          <span className="text-sm text-white/30 font-mono uppercase">
+            Today
+          </span>
+        </div>
       </div>
     </motion.div>
   );

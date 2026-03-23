@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS contacts (
 );
 
 -- 3. Business (Deals linked to a contact)
-CREATE TABLE IF NOT EXISTS business (
+CREATE TABLE IF NOT EXISTS businesses (
     id SERIAL PRIMARY KEY,
     contact_id INTEGER REFERENCES contacts(id) ON DELETE CASCADE,
     title VARCHAR(255) NOT NULL,
-    amout DECIMAL(12, 2) DEFAULT 0.0,
+    amount DECIMAL(12, 2) DEFAULT 0.0,
     stage VARCHAR(50) DEFAULT 'prospect',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
