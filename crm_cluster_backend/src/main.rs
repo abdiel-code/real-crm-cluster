@@ -1,20 +1,17 @@
 // src/main.rs
-use sqlx::postgres::PgPoolOptions;
-use sqlx::PgPool;
-use std::{net::SocketAddr};
-use tokio::net::TcpListener;
-use axum::{
-    routing::get,
-    Router,
-};
-use tokio::sync::broadcast;
-use std::sync::Arc;
+use axum::{Router, routing::get};
 use dotenvy::dotenv;
+use sqlx::PgPool;
+use sqlx::postgres::PgPoolOptions;
+use std::net::SocketAddr;
+use std::sync::Arc;
+use tokio::net::TcpListener;
+use tokio::sync::broadcast;
 use tower_http::cors::{Any, CorsLayer};
 
 // Get all models
-mod models;
 mod handlers;
+mod models;
 
 // Def Structs
 #[derive(Clone, serde::Serialize)]
@@ -27,6 +24,7 @@ pub struct SocketMessage {
 struct AppState {
     db_pool: PgPool,
     tx: broadcast::Sender<SocketMessage>,
+    jwt_secret: String,
 }
 
 // Create async main function
@@ -45,10 +43,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Create broadcast channel
     let (tx, _rx) = broadcast::channel::<SocketMessage>(16);
 
+    // Create jwt state
+    let jwt_secret = std::env::var("JWT_SECRET").expect("JWT_SECRET must be set");
+
     // Create shared state
     let shared_state = Arc::new(AppState {
         db_pool: pool,
         tx,
+        jwt_secret,
     });
 
     // Config CORS
@@ -59,12 +61,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Config Router
     let app = Router::new()
-        .route("/", get(|| async { "Server is runing"}))
+        .route("/", get(|| async { "Server is runing" }))
         .route("/ws", get(handlers::socket_handler::ws_handler))
         .nest("/accounts", handlers::account_handler::router())
         .nest("/businesses", handlers::business_handler::router())
         .nest("/contacts", handlers::contact_handler::router())
         .nest("/dashboard", handlers::dashboard_handler::router())
+        .nest("/users", handlers::user_handler::router())
+        .nest("/auth", handlers::auth_handler::router())
         .layer(cors)
         .with_state(shared_state);
 

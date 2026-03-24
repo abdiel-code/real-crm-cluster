@@ -7,5 +7,5 @@ pub struct User {
     pub name: String,
     pub email: String,
     pub password_hash: String,
-    created_at: Option<chrono::DateTime<chrono::Utc>>,
+    pub created_at: Option<chrono::DateTime<chrono::Utc>>,
 }
