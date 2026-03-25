@@ -2,15 +2,48 @@ use crate::AppState;
 use crate::models::user::User;
 use axum::{
     Json, Router,
-    extract::State,
-    http::{StatusCode, header},
+    extract::{FromRequestParts, State},
+    http::{StatusCode, header, request::Parts},
     response::{IntoResponse, Response},
     routing::{get, post},
 };
-use axum_extra::extract::cookie::{Cookie, SameSite};
+use axum_extra::extract::cookie::{Cookie, CookieJar, SameSite};
 use bcrypt::{DEFAULT_COST, hash, verify};
-use jsonwebtoken::{Algorithm, DecodingKey, EncodingKey, Header, Validation, encode};
+use jsonwebtoken::{Algorithm, DecodingKey, EncodingKey, Header, Validation, decode, encode};
 use std::sync::Arc;
+
+// Extractor
+
+impl<S> FromRequestParts<S> for Claims
+where
+    S: Send + Sync,
+{
+    type Rejection = (StatusCode, String);
+
+    async fn from_request_parts(parts: &mut Parts, _state: &S) -> Result<Self, Self::Rejection> {
+        // 1. Extract cookies from request
+
+        let jar = CookieJar::from_headers(&parts.headers);
+
+        // 2. Get the token cookie
+        let token = jar
+            .get("token")
+            .map(|c| c.value().to_string())
+            .ok_or((StatusCode::UNAUTHORIZED, "MISSING_TOKEN".to_string()))?;
+
+        // 3. Decode and validate JWT
+        let secret = std::env::var("JWT_SECRET")
+            .map_err(|_| (StatusCode::INTERNAL_SERVER_ERROR, "ENV_ERROR".to_string()))?;
+
+        let token_data = decode::<Claims>(
+            &token,
+            &DecodingKey::from_secret(secret.as_bytes()),
+            &Validation::default(),
+        )
+        .map_err(|_| (StatusCode::UNAUTHORIZED, "INVALID_TOKEN".to_string()))?;
+        Ok(token_data.claims)
+    }
+}
 
 #[derive(serde::Deserialize, sqlx::FromRow)]
 pub struct CreateUser {
@@ -140,8 +173,24 @@ pub async fn login(
     ))
 }
 
+pub async fn logout() -> impl IntoResponse {
+    let cookie = Cookie::build(("token", ""))
+        .http_only(true)
+        .same_site(SameSite::Strict)
+        .path("/")
+        .max_age(time::Duration::seconds(0))
+        .build();
+
+    (
+        StatusCode::OK,
+        [(header::SET_COOKIE, cookie.to_string())],
+        Json(serde_json::json!({"message": "LOGOUT_SUCCESS"})),
+    )
+}
+
 pub fn router() -> Router<Arc<AppState>> {
     Router::new()
         .route("/register", post(register))
         .route("/login", post(login))
+        .route("/logout", post(logout))
 }
