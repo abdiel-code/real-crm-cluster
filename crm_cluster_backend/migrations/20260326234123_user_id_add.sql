@@ -1,0 +1,5 @@
+-- Add migration script here
+
+ALTER TABLE accounts ADD COLUMN user_id INTEGER REFERENCES users(id) ON DELETE CASCADE;
+ALTER TABLE contacts ADD COLUMN user_id INTEGER REFERENCES users(id) ON DELETE CASCADE;
+ALTER TABLE businesses ADD COLUMN user_id INTEGER REFERENCES users(id) ON DELETE CASCADE;
