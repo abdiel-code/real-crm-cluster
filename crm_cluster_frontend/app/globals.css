@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 .bg-grid {
   background-color: #0a1628;
@@ -8,7 +8,7 @@
 }
 
 .bg-grid::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image:
@@ -28,7 +28,7 @@
 }
 
 .bg-grid::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
