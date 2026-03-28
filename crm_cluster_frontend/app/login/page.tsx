@@ -1,9 +1,11 @@
 "use client";
 import { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 const Login = () => {
+  const router = useRouter();
   const passwordInputRef = useRef(null);
   const [togglePassword, setTogglePassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -14,19 +16,9 @@ const Login = () => {
     type: "",
     msg: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-  const validations = {
-    length: formData.password.length >= 8,
-    lowercase: /[a-z]/.test(formData.password),
-    uppercase: /[A-Z]/.test(formData.password),
-    number: /\d/.test(formData.password),
-    symbol: /[*/&$@!,]/.test(formData.password),
-  };
-
-  const isValid = Object.values(validations).every(Boolean);
-  const score = Object.values(validations).filter(Boolean).length;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -39,6 +31,8 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     // Validate information
     e.preventDefault();
+
+    setIsLoading(true);
     if (!formData.email || !formData.password) {
       console.log("No data");
       setMessage({
@@ -77,27 +71,35 @@ const Login = () => {
         },
       );
 
-      console.log(res.data);
-    } catch (error) {
+      // Redirecting to Dashboard
       setMessage({
-        type: "Error",
-        msg: `There is an error on the server. Please, try again.`,
+        type: "Ok",
+        msg: "Login successful. Redirecting to your Dashboard",
       });
-      console.log(error);
+
+      setTimeout(() => {
+        setMessage({ type: "", msg: "" });
+        router.push("/Dashboard");
+      }, 3000);
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response?.status === 401) {
+        setMessage({
+          type: "Error",
+          msg: "Invalid email or password",
+        });
+      } else {
+        setMessage({
+          type: "Error",
+          msg: "There is an error on the server. Please, try again.",
+        });
+      }
       setTimeout(() => {
         setMessage({ type: "", msg: "" });
       }, 3000);
       return;
+    } finally {
+      setIsLoading(false);
     }
-
-    setMessage({
-      type: "Ok",
-      msg: "Login successful. Redirecting to your Dashboard",
-    });
-
-    setTimeout(() => {
-      setMessage({ type: "", msg: "" });
-    }, 3000);
   };
 
   return (
@@ -132,15 +134,7 @@ const Login = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className={`pr-10 border-2 rounded hover:scale-105 focus:scale-105 focus:outline-none transition-all duration-300            
-           ${
-             formData.password.length > 0
-               ? isValid
-                 ? "border-green-500 "
-                 : "border-red-500 hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] focus:shadow-[0_0_20px_rgba(255,0,0,0.3)]"
-               : "border-white hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] focus:shadow-[0_0_20px_rgba(0,212,255,0.3)]"
-           }
-          `}
+              className="pr-10 border-2 rounded hover:scale-105 focus:scale-105 focus:outline-none transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,212,255,0.3)] focus:shadow-[0_0_20px_rgba(0,212,255,0.3)]"
             />
             <button
               type="button"
@@ -156,66 +150,13 @@ const Login = () => {
 
         <button
           type="submit"
-          className="border-2 border-cyan-500 rounded p-2 cursor-pointer hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]"
+          disabled={isLoading}
+          className="border-2 border-cyan-500 rounded p-2 cursor-pointer 
+  hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] 
+  disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Submit
+          {isLoading ? "Loading..." : "Login"}
         </button>
-
-        {formData.password.length > 0 && (
-          <div className="w-full flex flex-col items-center gap-2">
-            <div className="flex gap-1 w-full">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className={`h-2 flex-1 rounded transition-all duration-300 ${
-                    score > i
-                      ? i === 0
-                        ? "bg-red-500"
-                        : i === 1
-                          ? "bg-orange-500"
-                          : i === 2
-                            ? "bg-yellow-500"
-                            : i === 3
-                              ? "bg-green-500"
-                              : "bg-cyan-500"
-                      : "bg-gray-700"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <p
-              className={`text-center text-sm ${
-                score <= 2
-                  ? "text-red-500"
-                  : score === 3
-                    ? "text-orange-500"
-                    : score === 4
-                      ? "text-yellow-500"
-                      : "text-cyan-500"
-              }`}
-            >
-              {score <= 2
-                ? "Weak"
-                : score === 3
-                  ? "Okay"
-                  : score === 4
-                    ? "Good"
-                    : "Strong"}
-            </p>
-          </div>
-        )}
-
-        {formData.password.length > 0 && !isValid && (
-          <span className="text-orange-600 text-center text-sm mt-[1rem]">
-            Password must have 8+ chars, uppercase, lowercase, number and symbol
-            (*/&$@!,)
-          </span>
-        )}
-
-        {isValid && (
-          <span className="text-green-500 text-sm ">Password is valid</span>
-        )}
 
         {message.msg && (
           <p

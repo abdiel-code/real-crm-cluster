@@ -1,5 +1,9 @@
 // src/main.rs
-use axum::{Router, routing::get};
+use axum::{
+    Router,
+    http::{HeaderValue, Method, header},
+    routing::get,
+};
 use dotenvy::dotenv;
 use sqlx::PgPool;
 use sqlx::postgres::PgPoolOptions;
@@ -55,9 +59,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Config CORS
     let cors = CorsLayer::new()
-        .allow_origin(Any)
-        .allow_methods(Any)
-        .allow_headers(Any);
+        .allow_origin("http://localhost:3000".parse::<HeaderValue>().unwrap())
+        .allow_methods([
+            Method::GET,
+            Method::POST,
+            Method::PUT,
+            Method::DELETE,
+            Method::OPTIONS,
+        ])
+        .allow_headers([header::CONTENT_TYPE, header::AUTHORIZATION, header::ACCEPT])
+        .allow_credentials(true);
 
     // Config Router
     let app = Router::new()

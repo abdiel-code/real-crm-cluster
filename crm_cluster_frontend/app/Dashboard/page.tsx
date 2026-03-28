@@ -1,7 +1,8 @@
-'use client';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import GraphCard from './GraphCard';
+"use client";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import GraphCard from "./GraphCard";
+import { useRouter } from "next/navigation";
 
 interface DashboardData {
   accounts: {
@@ -25,14 +26,17 @@ const DashboardPage = () => {
     contacts: { total: 0, history: [] },
   });
 
+  const router = useRouter();
+
   useEffect(() => {
     const fetchSummary = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:4000/dashboard/summary'
+          `${process.env.NEXT_PUBLIC_API_URL}/dashboard/summary`,
+          { withCredentials: true },
         );
 
-        console.log('Response:', response);
+        console.log("Response:", response);
 
         if (response.status === 200) {
           const { accounts, contacts, business } = response.data.payload;
@@ -43,17 +47,37 @@ const DashboardPage = () => {
           });
         }
       } catch (error) {
-        console.error('Error:', error);
+        console.error("Error:", error);
       }
     };
     fetchSummary();
   }, []);
+
+  const handleLogout = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/logout`,
+        {},
+        {
+          withCredentials: true,
+        },
+      );
+
+      router.push("/");
+    } catch (error) {
+      console.log("Server error: ", error);
+      return;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-grid">
       {/* 1. HEADER */}
       <nav className="bg-white shadow p-4">
         <h1 className="text-xl font-bold">CRM Dashboard</h1>
+        <button className="cursor-pointer" onClick={handleLogout}>
+          Logout
+        </button>
       </nav>
 
       <div className="p-8">

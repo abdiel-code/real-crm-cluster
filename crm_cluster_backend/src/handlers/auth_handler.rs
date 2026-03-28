@@ -77,6 +77,37 @@ pub async fn register(
     State(state): State<Arc<AppState>>,
     Json(payload): Json<CreateUser>,
 ) -> Result<impl IntoResponse, (axum::http::StatusCode, String)> {
+    // Validate name:
+    if payload.name.len() < 8 {
+        return Err((StatusCode::BAD_REQUEST, "INVALID_NAME".to_string()));
+    };
+
+    // Validate email:
+    if !payload.email.contains("@") || !payload.email.contains(".") {
+        return Err((StatusCode::BAD_REQUEST, "INVALID_EMAIL".to_string()));
+    };
+
+    // Validate password
+    if payload.password.len() < 8 {
+        return Err((StatusCode::BAD_REQUEST, "INVALID_PASSWORD".to_string()));
+    };
+
+    // Validate existing mail
+    let existing = sqlx::query_scalar::<_, i64>("SELECT COUNT(*) FROM users WHERE email = $1")
+        .bind(&payload.email)
+        .fetch_one(&state.db_pool)
+        .await
+        .map_err(|e| {
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                format!("DB_ERROR: {}", e),
+            )
+        })?;
+
+    if existing > 0 {
+        return Err((StatusCode::CONFLICT, "EMAIL_ALREAY_EXISTS".to_string()));
+    };
+
     // Hash password
     let hashed_password = hash(payload.password, DEFAULT_COST).map_err(|e| {
         (
