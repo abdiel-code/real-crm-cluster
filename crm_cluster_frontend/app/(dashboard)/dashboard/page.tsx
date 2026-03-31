@@ -53,33 +53,8 @@ const DashboardPage = () => {
     fetchSummary();
   }, []);
 
-  const handleLogout = async () => {
-    try {
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/logout`,
-        {},
-        {
-          withCredentials: true,
-        },
-      );
-
-      router.push("/");
-    } catch (error) {
-      console.log("Server error: ", error);
-      return;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-grid">
-      {/* 1. HEADER */}
-      <nav className="bg-white shadow p-4">
-        <h1 className="text-xl font-bold">CRM Dashboard</h1>
-        <button className="cursor-pointer" onClick={handleLogout}>
-          Logout
-        </button>
-      </nav>
-
       <div className="p-8">
         {/* 2. KPIs */}
         <div className="grid grid-cols-3 gap-4 mb-8 perspective-[2000px]">

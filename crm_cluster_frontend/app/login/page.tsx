@@ -79,7 +79,7 @@ const Login = () => {
 
       setTimeout(() => {
         setMessage({ type: "", msg: "" });
-        router.push("/Dashboard");
+        router.push("/dashboard");
       }, 3000);
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.status === 401) {
