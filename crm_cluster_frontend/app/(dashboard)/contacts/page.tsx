@@ -13,29 +13,29 @@ const Contacts = () => {
 
   // UseEffects ----------------------------
 
-  // Fetch Contacts
+  // Fetch Contacts UseEffect
   useEffect(() => {
-    // Fetch data
-    const fetchContacts = async () => {
-      try {
-        const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/contacts`,
-          {
-            withCredentials: true,
-          },
-        );
-
-        console.log("Response: ", res.data);
-
-        // Add data to the mock info
-        setContacts(res.data?.payload);
-      } catch (error) {
-        console.log("Error while getting info: ", error);
-      }
-    };
-
     fetchContacts();
   }, []);
+
+  // Fetch Contacts
+  const fetchContacts = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/contacts`,
+        {
+          withCredentials: true,
+        },
+      );
+
+      console.log("Response: ", res.data);
+
+      // Add data to the mock info
+      setContacts(res.data?.payload);
+    } catch (error) {
+      console.log("Error while getting info: ", error);
+    }
+  };
 
   // Fetch Accounts
   useEffect(() => {
@@ -59,7 +59,7 @@ const Contacts = () => {
   }, []);
 
   return (
-    <div className="p-8">
+    <div className="p-8 bg-grid min-h-screen text-white">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <h1>Contacts</h1>
@@ -75,7 +75,13 @@ const Contacts = () => {
       <div>{<ContactsTable contacts={contacts} />}</div>
 
       {/*Modal*/}
-      {isToggled && <ContactModal accounts={accounts} />}
+      {isToggled && (
+        <ContactModal
+          accounts={accounts}
+          onSuccess={fetchContacts}
+          onClose={() => setIsToggled(false)}
+        />
+      )}
     </div>
   );
 };

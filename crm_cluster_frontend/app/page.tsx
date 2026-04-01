@@ -6,7 +6,7 @@ export default function Home() {
         <nav>
           <ul className="flex gap-4">
             <li>
-              <a href="/Dashboard">Dashboard</a>
+              <a href="/dashboard">Dashboard</a>
             </li>
             <li>
               <a href="/customers">Customers</a>
