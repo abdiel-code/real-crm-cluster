@@ -3,12 +3,18 @@ import { useState } from "react";
 import axios from "axios";
 
 type ContactModalProps = {
+  isToggled: boolean;
   accounts: Array<Account>;
   onSuccess: () => void;
   onClose: () => void;
 };
 
-const ContactModal = ({ accounts, onSuccess, onClose }: ContactModalProps) => {
+const ContactModal = ({
+  isToggled,
+  accounts,
+  onSuccess,
+  onClose,
+}: ContactModalProps) => {
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -85,72 +91,85 @@ const ContactModal = ({ accounts, onSuccess, onClose }: ContactModalProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Create Contact</h1>
-      <div>
-        <label htmlFor="firstNane" id="firstName">
-          First Name
-        </label>
-        <input
-          type="text"
-          id="firstName"
-          name="first_name"
-          onChange={handleChange}
-        />
-      </div>
+    <div
+      className={`fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm transition-all duration-300 ${
+        isToggled ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className={`bg-[#0d1f3c] border-2 border-[#00d4ff40] rounded-md p-6 flex flex-col gap-4 w-full max-w-sm transform transition-all duration-300 ${
+          isToggled
+            ? "translate-y-0 scale-100 opacity-100"
+            : "translate-y-4 scale-95 opacity-0"
+        }`}
+      >
+        <h1>Create Contact</h1>
+        <div>
+          <label htmlFor="firstNane" id="firstName">
+            First Name
+          </label>
+          <input
+            type="text"
+            id="firstName"
+            name="first_name"
+            onChange={handleChange}
+          />
+        </div>
 
-      <div>
-        <label htmlFor="lastName" id="lastName">
-          Last Name
-        </label>
-        <input
-          type="text"
-          id="lastName"
-          name="last_name"
-          onChange={handleChange}
-        />
-      </div>
+        <div>
+          <label htmlFor="lastName" id="lastName">
+            Last Name
+          </label>
+          <input
+            type="text"
+            id="lastName"
+            name="last_name"
+            onChange={handleChange}
+          />
+        </div>
 
-      <div>
-        <label htmlFor="email" id="email">
-          Email
-        </label>
-        <input type="text" id="email" name="email" onChange={handleChange} />
-      </div>
+        <div>
+          <label htmlFor="email" id="email">
+            Email
+          </label>
+          <input type="text" id="email" name="email" onChange={handleChange} />
+        </div>
 
-      <div>
-        <label htmlFor="phone" id="phone">
-          Phone
-        </label>
-        <input type="text" id="phone" name="phone" onChange={handleChange} />
-      </div>
+        <div>
+          <label htmlFor="phone" id="phone">
+            Phone
+          </label>
+          <input type="text" id="phone" name="phone" onChange={handleChange} />
+        </div>
 
-      <div>
-        <label htmlFor="accountId" id="accountId">
-          Account ID
-        </label>
-        <select name="account_id" id="accountId" onChange={handleChange}>
-          <option value={0}>No Account</option>
-          {accounts.map((account) => (
-            <option key={account.id} value={account.id}>
-              {account.name}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div>
+          <label htmlFor="accountId" id="accountId">
+            Account ID
+          </label>
+          <select name="account_id" id="accountId" onChange={handleChange}>
+            <option value={0}>No Account</option>
+            {accounts.map((account) => (
+              <option key={account.id} value={account.id}>
+                {account.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <button
-        type="submit"
-        disabled={isLoading}
-        className="border-2 border-cyan-500 rounded p-2 cursor-pointer 
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="border-2 border-cyan-500 rounded p-2 cursor-pointer 
   hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] 
   disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {isLoading ? "Loading..." : "Create"}
-      </button>
+        >
+          {isLoading ? "Loading..." : "Create"}
+        </button>
 
-      {message && <p className="text-red-500 text-sm">{message}</p>}
-    </form>
+        {message && <p className="text-red-500 text-sm">{message}</p>}
+      </form>
+    </div>
   );
 };
 
