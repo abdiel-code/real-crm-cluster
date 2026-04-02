@@ -1,5 +1,5 @@
 import { Contact, Account } from "../../types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 type ContactModalProps = {
@@ -7,6 +7,7 @@ type ContactModalProps = {
   accounts: Array<Account>;
   onSuccess: () => void;
   onClose: () => void;
+  contact: Contact | null;
 };
 
 const ContactModal = ({
@@ -14,6 +15,7 @@ const ContactModal = ({
   accounts,
   onSuccess,
   onClose,
+  contact,
 }: ContactModalProps) => {
   const [formData, setFormData] = useState({
     first_name: "",
@@ -25,6 +27,19 @@ const ContactModal = ({
 
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
+
+  // UseEffects ---------------------------------
+  useEffect(() => {
+    if (contact) {
+      setFormData({
+        first_name: contact.first_name,
+        last_name: contact.last_name,
+        email: contact.email,
+        phone: contact.phone || "",
+        account_id: contact.account_id,
+      });
+    }
+  }, [contact]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -54,15 +69,26 @@ const ContactModal = ({
       return;
     }
 
-    // Post
+    // Send request
     try {
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/contacts`,
-        formData,
-        {
-          withCredentials: true,
-        },
-      );
+      if (contact) {
+        await axios.put(
+          `${process.env.NEXT_PUBLIC_API_URL}/contacts/${contact.id}`,
+          formData,
+          {
+            withCredentials: true,
+          },
+        );
+      } else {
+        await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}/contacts`,
+          formData,
+          {
+            withCredentials: true,
+          },
+        );
+      }
+
       onSuccess();
       onClose();
       setFormData({
@@ -104,50 +130,105 @@ const ContactModal = ({
             : "translate-y-4 scale-95 opacity-0"
         }`}
       >
-        <h1>Create Contact</h1>
+        <h1 className="text-white text-xl font-bold mb-2">
+          {contact ? "Edit contact" : "Create Contact"}
+        </h1>
         <div>
-          <label htmlFor="firstNane" id="firstName">
+          <label
+            htmlFor="firstNane"
+            id="firstName"
+            className="text-white/60 text-sm font-semibold"
+          >
             First Name
           </label>
           <input
+            value={formData.first_name}
             type="text"
             id="firstName"
             name="first_name"
             onChange={handleChange}
+            className="w-full bg-transparent border-2 border-[#00d4ff40] rounded px-3 py-2 text-white 
+            focus:outline-none focus:border-[#00d4ff80] focus:shadow-[0_0_10px_rgba(0,212,255,0.2)] 
+            transition-all duration-300"
           />
         </div>
 
         <div>
-          <label htmlFor="lastName" id="lastName">
+          <label
+            htmlFor="lastName"
+            id="lastName"
+            className="text-white/60 text-sm font-semibold"
+          >
             Last Name
           </label>
           <input
+            value={formData.last_name}
             type="text"
             id="lastName"
             name="last_name"
             onChange={handleChange}
+            className="w-full bg-transparent border-2 border-[#00d4ff40] rounded px-3 py-2 text-white 
+            focus:outline-none focus:border-[#00d4ff80] focus:shadow-[0_0_10px_rgba(0,212,255,0.2)] 
+            transition-all duration-300"
           />
         </div>
 
         <div>
-          <label htmlFor="email" id="email">
+          <label
+            htmlFor="email"
+            id="email"
+            className="text-white/60 text-sm font-semibold"
+          >
             Email
           </label>
-          <input type="text" id="email" name="email" onChange={handleChange} />
+          <input
+            type="text"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            value={formData.email}
+            className="w-full bg-transparent border-2 border-[#00d4ff40] rounded px-3 py-2 text-white 
+            focus:outline-none focus:border-[#00d4ff80] focus:shadow-[0_0_10px_rgba(0,212,255,0.2)] 
+            transition-all duration-300"
+          />
         </div>
 
         <div>
-          <label htmlFor="phone" id="phone">
+          <label
+            htmlFor="phone"
+            id="phone"
+            className="text-white/60 text-sm font-semibold"
+          >
             Phone
           </label>
-          <input type="text" id="phone" name="phone" onChange={handleChange} />
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            onChange={handleChange}
+            value={formData.phone}
+            className="w-full bg-transparent border-2 border-[#00d4ff40] rounded px-3 py-2 text-white 
+            focus:outline-none focus:border-[#00d4ff80] focus:shadow-[0_0_10px_rgba(0,212,255,0.2)] 
+            transition-all duration-300"
+          />
         </div>
 
         <div>
-          <label htmlFor="accountId" id="accountId">
+          <label
+            htmlFor="accountId"
+            id="accountId"
+            className="text-white/60 text-sm font-semibold"
+          >
             Account ID
           </label>
-          <select name="account_id" id="accountId" onChange={handleChange}>
+          <select
+            name="account_id"
+            id="accountId"
+            value={formData.account_id ?? 0}
+            onChange={handleChange}
+            className="w-full bg-[#0d1f3c] border-2 border-[#00d4ff40] rounded px-3 py-2 text-white 
+            focus:outline-none focus:border-[#00d4ff80] transition-all duration-300 cursor-pointer"
+          >
             <option value={0}>No Account</option>
             {accounts.map((account) => (
               <option key={account.id} value={account.id}>
@@ -157,15 +238,25 @@ const ContactModal = ({
           </select>
         </div>
 
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="border-2 border-cyan-500 rounded p-2 cursor-pointer 
-  hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] 
-  disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {isLoading ? "Loading..." : "Create"}
-        </button>
+        <div className="flex gap-3">
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex-1 border-2 border-white/20 rounded p-2 text-white/60 
+    hover:bg-[#00d4ff10] cursor-pointer transition-all duration-300"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="flex-1 border-2 border-cyan-500 rounded p-2 text-white cursor-pointer 
+    hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] 
+    disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+          >
+            {isLoading ? "Loading..." : contact ? "Edit" : "Create"}
+          </button>
+        </div>
 
         {message && <p className="text-red-500 text-sm">{message}</p>}
       </form>

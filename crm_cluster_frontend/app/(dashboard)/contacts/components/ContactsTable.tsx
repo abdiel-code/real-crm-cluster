@@ -1,20 +1,24 @@
 "use client";
 import { useState } from "react";
-import { Contact } from "../../types";
+import { Account, Contact } from "../../types";
 import { BsThreeDots } from "react-icons/bs";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
+import ContactModal from "./ContactModal";
 import axios from "axios";
 
 type TableProps = {
   contacts: Array<Contact>;
+  accounts: Array<Account>;
   onSuccess: () => void;
 };
 
-const ContactsTable = ({ contacts, onSuccess }: TableProps) => {
+const ContactsTable = ({ contacts, accounts, onSuccess }: TableProps) => {
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
   const [contactToDelete, setContactToDelete] = useState<number | null>(null);
+  const [contactToEdit, setContactToEdit] = useState<Contact | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -22,7 +26,7 @@ const ContactsTable = ({ contacts, onSuccess }: TableProps) => {
     if (isLoading) return;
     setIsLoading(true);
     try {
-      const res = await axios.delete(
+      await axios.delete(
         `${process.env.NEXT_PUBLIC_API_URL}/contacts/${contactToDelete}`,
         {
           withCredentials: true,
@@ -110,7 +114,8 @@ const ContactsTable = ({ contacts, onSuccess }: TableProps) => {
                   <button
                     className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-white hover:bg-[#00d4ff10] cursor-pointer"
                     onClick={() => {
-                      console.log("Edit");
+                      setContactToEdit(contact);
+                      setIsEditOpen(true);
                     }}
                   >
                     <FaEdit color="#00d4ff" /> Edit
@@ -139,6 +144,14 @@ const ContactsTable = ({ contacts, onSuccess }: TableProps) => {
           setContactToDelete(null);
           setIsConfirmOpen(false);
         }}
+      />
+
+      <ContactModal
+        isToggled={isEditOpen}
+        accounts={accounts}
+        onSuccess={onSuccess}
+        onClose={() => setIsEditOpen(false)}
+        contact={contactToEdit}
       />
 
       {message && <p className="text-red-500 text-sm">{message}</p>}
