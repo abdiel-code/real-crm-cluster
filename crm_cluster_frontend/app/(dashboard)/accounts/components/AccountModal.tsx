@@ -51,7 +51,8 @@ const AccountModal = ({
     setIsLoading(true);
 
     // Validations
-    if (!formData.name || !formData.industry) {
+    if (!formData.name) {
+      setMessage("Name is required");
       setIsLoading(false);
       return;
     }

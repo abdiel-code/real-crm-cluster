@@ -59,12 +59,16 @@ const ContactModal = ({
     setIsLoading(true);
 
     // Validations
-    if (
-      !formData.first_name ||
-      !formData.last_name ||
-      !formData.email ||
-      !formData.phone
-    ) {
+    if (!formData.first_name) {
+      setMessage("First name is required");
+      setIsLoading(false);
+      return;
+    } else if (!formData.last_name) {
+      setMessage("Last name is required");
+      setIsLoading(false);
+      return;
+    } else if (!formData.email) {
+      setMessage("Email is required");
       setIsLoading(false);
       return;
     }
