@@ -29,8 +29,6 @@ const Accounts = () => {
         },
       );
 
-      console.log("Response: ", res.data);
-
       // Add data to the mock info
       setAccounts(res.data?.payload);
     } catch (error) {

@@ -2,16 +2,13 @@ use crate::AppState;
 use crate::SocketMessage;
 use crate::handlers::auth_handler::Claims;
 use crate::models::business::Business;
-use crate::models::contact;
 use axum::{Json, Router, extract::State, http::StatusCode, response::IntoResponse, routing::get};
 use serde::{Deserialize, Serialize};
-use sqlx::Type;
 use sqlx::types::BigDecimal;
 use std::sync::Arc;
 use validator::{Validate, ValidationError};
 
-#[derive(Debug, Serialize, Deserialize, Type, Clone, Copy)]
-#[sqlx(type_name = "stage")]
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub enum Stage {
     Prospect,
@@ -22,6 +19,22 @@ pub enum Stage {
     Lost,
     Closed,
     Cancelled,
+}
+
+impl std::fmt::Display for Stage {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        let s = match self {
+            Stage::Prospect => "prospect",
+            Stage::Lead => "lead",
+            Stage::Proposal => "proposal",
+            Stage::Negotiation => "negotiation",
+            Stage::Won => "won",
+            Stage::Lost => "lost",
+            Stage::Closed => "closed",
+            Stage::Cancelled => "cancelled",
+        };
+        write!(f, "{}", s)
+    }
 }
 
 #[derive(serde::Deserialize, sqlx::FromRow, Validate)]
@@ -108,10 +121,11 @@ pub async fn create_business(
 
     // Check if user is authorized:
     if let Some(c_id) = payload.contact_id {
-        if !is_contact_authorized(&state.db_pool, c_id, claims.sub)
+        let authorized = is_contact_authorized(&state.db_pool, c_id, claims.sub)
             .await
-            .map_err(|e| (StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e)))?
-        {
+            .map_err(|e| (StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e)))?;
+
+        if !authorized {
             return Err((StatusCode::FORBIDDEN, "Unauthorized contact".into()));
         }
     }
@@ -122,10 +136,13 @@ pub async fn create_business(
         .bind(payload.contact_id)
         .bind(payload.title)
         .bind(payload.amount)
-        .bind(payload.stage)
+        .bind(payload.stage.to_string())
         .fetch_one(&state.db_pool)
         .await
-        .map_err(|e| (StatusCode::INTERNAL_SERVER_ERROR, format!("CREATE_BUSINESS_ERROR: {}", e)))?;
+        .map_err(|e| {
+            println!("CREATE_BUSINESS_ERROR: {}", e);
+            (StatusCode::INTERNAL_SERVER_ERROR, format!("CREATE_BUSINESS_ERROR: {}", e))
+        })?;
 
     // Send notification with socket
     let _ = state.tx.send(SocketMessage {
@@ -209,7 +226,7 @@ pub async fn update_business_by_id(
         .bind(payload.contact_id)
         .bind(payload.title)
         .bind(payload.amount)
-        .bind(payload.stage)
+        .bind(payload.stage.to_string())
         .bind(business_id)
         .bind(claims.sub)
         .fetch_one(&state.db_pool)

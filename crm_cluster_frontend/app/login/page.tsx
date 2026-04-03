@@ -34,7 +34,6 @@ const Login = () => {
 
     setIsLoading(true);
     if (!formData.email || !formData.password) {
-      console.log("No data");
       setMessage({
         type: "Error",
         msg: "All fields must be filled and meet the requirements",
