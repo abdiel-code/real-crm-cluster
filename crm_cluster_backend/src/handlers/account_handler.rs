@@ -3,10 +3,13 @@ use crate::SocketMessage;
 use crate::handlers::auth_handler::Claims;
 use crate::models::account::Account;
 use axum::{Json, Router, extract::State, http::StatusCode, response::IntoResponse, routing::get};
+use serde::{Deserialize, Serialize};
 use std::sync::Arc;
+use validator::Validate;
 
-#[derive(serde::Deserialize, sqlx::FromRow, serde::Serialize)]
+#[derive(Deserialize, sqlx::FromRow, Serialize, Validate)]
 pub struct CreateAccount {
+    #[validate(length(min = 1, message = "Name is required"))]
     name: String,
     industry: Option<String>,
 }
@@ -101,6 +104,12 @@ pub async fn create_account(
     claims: Claims,
     Json(payload): Json<CreateAccount>,
 ) -> Result<impl IntoResponse, (StatusCode, String)> {
+    // Validate field
+    payload
+        .validate()
+        .map_err(|e| (StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e)))?;
+
+    // Send Query
     let account = sqlx::query_as::<_, Account>(
         "INSERT INTO accounts (user_id, name, industry) VALUES ($1, $2, $3) RETURNING *",
     )
@@ -134,6 +143,12 @@ pub async fn update_account(
     claims: Claims,
     Json(payload): Json<CreateAccount>,
 ) -> Result<impl IntoResponse, (StatusCode, String)> {
+    // Validate field
+    payload
+        .validate()
+        .map_err(|e| (StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e)))?;
+
+    // Make Query
     let account = sqlx::query_as::<_, Account>(
         "UPDATE accounts SET name = $1, industry = $2 WHERE id = $3 AND user_id = $4 RETURNING *",
     )

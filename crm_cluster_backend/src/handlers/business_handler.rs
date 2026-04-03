@@ -2,11 +2,13 @@ use crate::AppState;
 use crate::SocketMessage;
 use crate::handlers::auth_handler::Claims;
 use crate::models::business::Business;
+use crate::models::contact;
 use axum::{Json, Router, extract::State, http::StatusCode, response::IntoResponse, routing::get};
 use serde::{Deserialize, Serialize};
 use sqlx::Type;
 use sqlx::types::BigDecimal;
 use std::sync::Arc;
+use validator::{Validate, ValidationError};
 
 #[derive(Debug, Serialize, Deserialize, Type, Clone, Copy)]
 #[sqlx(type_name = "stage")]
@@ -22,12 +24,35 @@ pub enum Stage {
     Cancelled,
 }
 
-#[derive(serde::Deserialize, sqlx::FromRow)]
+#[derive(serde::Deserialize, sqlx::FromRow, Validate)]
 pub struct CreateBusiness {
     pub contact_id: Option<i32>,
+
+    #[validate(length(min = 1, message = "title is required"))]
     pub title: String,
+
+    #[validate(custom(function = "validate_amount"))]
     pub amount: BigDecimal,
     pub stage: Stage,
+}
+
+fn validate_amount(amount: &BigDecimal) -> Result<(), ValidationError> {
+    if amount < &BigDecimal::from(0) {
+        return Err(ValidationError::new("The amount cant be below 0"));
+    }
+    Ok(())
+}
+
+async fn is_contact_authorized(
+    db: &sqlx::PgPool,
+    contact_id: i32,
+    user_id: i32,
+) -> Result<bool, sqlx::Error> {
+    sqlx::query_scalar("SELECT EXISTS(SELECT 1 FROM contacts WHERE id = $1 AND user_id = $2)")
+        .bind(contact_id)
+        .bind(user_id)
+        .fetch_one(db)
+        .await
 }
 
 pub async fn count_businesses(
@@ -76,6 +101,22 @@ pub async fn create_business(
     claims: Claims,
     Json(payload): Json<CreateBusiness>,
 ) -> Result<impl IntoResponse, (StatusCode, String)> {
+    // Validate fields
+    payload
+        .validate()
+        .map_err(|e| (StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e)))?;
+
+    // Check if user is authorized:
+    if let Some(c_id) = payload.contact_id {
+        if !is_contact_authorized(&state.db_pool, c_id, claims.sub)
+            .await
+            .map_err(|e| (StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e)))?
+        {
+            return Err((StatusCode::FORBIDDEN, "Unauthorized contact".into()));
+        }
+    }
+
+    // Make Query
     let business = sqlx::query_as::<_, Business>("INSERT INTO businesses (user_id, contact_id, title, amount, stage) VALUES ($1, $2, $3, $4, $5) RETURNING *")
         .bind(claims.sub)
         .bind(payload.contact_id)
@@ -148,6 +189,22 @@ pub async fn update_business_by_id(
     claims: Claims,
     Json(payload): Json<CreateBusiness>,
 ) -> Result<impl IntoResponse, (StatusCode, String)> {
+    // Validate fields
+    payload
+        .validate()
+        .map_err(|e| (StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e)))?;
+
+    // Check if user is authorized:
+    if let Some(c_id) = payload.contact_id {
+        if !is_contact_authorized(&state.db_pool, c_id, claims.sub)
+            .await
+            .map_err(|e| (StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e)))?
+        {
+            return Err((StatusCode::FORBIDDEN, "Unauthorized contact".into()));
+        }
+    }
+
+    // Make Query
     let business = sqlx::query_as::<_, Business>("UPDATE businesses SET contact_id = $1, title = $2, amount = $3, stage = $4 WHERE id = $5 AND user_id = $6 RETURNING *")
         .bind(payload.contact_id)
         .bind(payload.title)

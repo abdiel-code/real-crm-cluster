@@ -5,13 +5,21 @@ use crate::models::contact::Contact;
 use axum::{Json, Router, extract::State, http::StatusCode, response::IntoResponse, routing::get};
 use serde::Deserialize;
 use std::sync::Arc;
+use validator::Validate;
 
-#[derive(Deserialize, sqlx::FromRow)]
-pub struct CreateContact {
+#[derive(Deserialize, sqlx::FromRow, Validate)]
+pub struct CreateContact {    
     pub account_id: Option<i32>,    
+
+    #[validate(length(min = 1, message = "First name is required"))]
     pub first_name: String,
+
+    #[validate(length(min = 1, message = "Last name is required"))]
     pub last_name: Option<String>,
+
+    #[validate(email(message = "Invalid email format"))]
     pub email: String,
+
     pub phone: Option<String>,
 }
 
@@ -79,6 +87,10 @@ pub async fn create_contact(
     claims: Claims,
     Json(payload): Json<CreateContact>,
 ) -> Result<impl IntoResponse, (StatusCode, String)> {
+
+    // Validate fields
+    payload.validate().map_err(|e| {(StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e))})?;
+
     let contact = sqlx::query_as::<_, Contact>("INSERT INTO contacts (account_id, user_id, first_name, last_name, email, phone) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *")
         .bind(payload.account_id)        
         .bind(claims.sub)
@@ -133,6 +145,9 @@ pub async fn update_contact_by_id(
     claims: Claims,
     Json(payload): Json<CreateContact>,
 ) -> Result<impl IntoResponse, (StatusCode, String)> {
+
+    payload.validate().map_err(|e| {(StatusCode::BAD_REQUEST, format!("VALIDATION_ERROR: {}", e))})?;
+
     let contact = sqlx::query_as::<_, Contact>("UPDATE contacts SET account_id = $1, first_name = $2, last_name = $3, email = $4, phone = $5 WHERE id = $6 AND user_id = $7 RETURNING *")
         .bind(payload.account_id)
         .bind(payload.first_name)
