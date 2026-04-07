@@ -1,23 +1,8 @@
 "use client";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import GraphCard from "./GraphCard";
-import { useRouter } from "next/navigation";
-
-interface DashboardData {
-  accounts: {
-    total: number;
-    history: number[];
-  };
-  businesses: {
-    total: number;
-    history: number[];
-  };
-  contacts: {
-    total: number;
-    history: number[];
-  };
-}
+import GraphCard from "./components/GraphCard";
+import RecentCard from "./components/RecentCard";
 
 const DashboardPage = () => {
   const [data, setData] = useState({
@@ -25,8 +10,6 @@ const DashboardPage = () => {
     businesses: { total: 0, history: [] },
     contacts: { total: 0, history: [] },
   });
-
-  const router = useRouter();
 
   useEffect(() => {
     const fetchSummary = async () => {
@@ -39,10 +22,10 @@ const DashboardPage = () => {
         console.log("Response:", response);
 
         if (response.status === 200) {
-          const { accounts, contacts, business } = response.data.payload;
+          const { accounts, contacts, businesses } = response.data.payload;
           setData({
             accounts: accounts,
-            businesses: business,
+            businesses: businesses,
             contacts: contacts,
           });
         }
@@ -54,9 +37,8 @@ const DashboardPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-grid">
+    <div className="min-h-screen bg-grid flex flex-col">
       <div className="p-8">
-        {/* 2. KPIs */}
         <div className="grid grid-cols-3 gap-4 mb-8 perspective-[2000px]">
           <GraphCard
             history={data.accounts.history}
@@ -77,25 +59,10 @@ const DashboardPage = () => {
             title="Contacts"
           />
         </div>
+      </div>
 
-        {/* 3. ACCIONES RÁPIDAS */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
-          <button className="bg-blue-500 text-white p-4 rounded">
-            + New Account
-          </button>
-          <button className="bg-green-500 text-white p-4 rounded">
-            + New Business
-          </button>
-          <button className="bg-purple-500 text-white p-4 rounded">
-            + New Contact
-          </button>
-        </div>
-
-        {/* 4. TABLAS RECIENTES (próximo paso) */}
-        <div className="bg-white p-6 rounded shadow">
-          <h2 className="text-lg font-bold mb-4">Recent Activity</h2>
-          <p className="text-gray-400">No recent activity</p>
-        </div>
+      <div className="flex justify-center w-full flex-1 p-8 gap-4">
+        <RecentCard />
       </div>
     </div>
   );
