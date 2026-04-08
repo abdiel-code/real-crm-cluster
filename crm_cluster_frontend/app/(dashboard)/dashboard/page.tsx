@@ -19,8 +19,6 @@ const DashboardPage = () => {
           { withCredentials: true },
         );
 
-        console.log("Response:", response);
-
         if (response.status === 200) {
           const { accounts, contacts, businesses } = response.data.payload;
           setData({

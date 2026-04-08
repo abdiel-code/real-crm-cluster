@@ -6,19 +6,33 @@ type AcctivityProps = {
 };
 
 const ActivityItem = ({ event, i }: AcctivityProps) => {
-  const getName = (event: string, payload: any): string => {
-    console.log(`event name ${event} payload ${payload}`);
-    if (event.includes("CONTACT"))
-      return `${payload?.first_name} ${payload?.last_name}`;
-    if (event.includes("BUSINESS")) return payload?.title;
-    if (event.includes("ACCOUNT")) return payload?.name;
-    return "Unknown";
+  const getActivityLabel = (event: any, payload: any) => {
+    console.log("event", event);
+    const parts = event.event?.split("_");
+    const section =
+      parts[0].charAt(0).toUpperCase() + parts[0].slice(1).toLowerCase();
+    const action =
+      parts[1].charAt(0).toUpperCase() + parts[1].slice(1).toLowerCase();
+    let target = payload?.name || payload?.title || payload?.first_name;
+
+    return { section, action, target };
   };
 
-  const parts = event.event?.split("_");
-  const eventAction = parts[parts.length - 1].toLowerCase();
-  const eventSection = parts.slice(0, -1).join(" ").toLowerCase();
-  const name = getName(event.event, event.payload);
+  const label = getActivityLabel(event, event.payload);
+  const section = label?.section;
+  const action = label?.action;
+  const target = label?.target;
+  const date = formatDate(event.timestamp);
+
+  function formatDate(dateString: string): string {
+    const date = new Date(dateString);
+
+    return new Intl.DateTimeFormat("es-MX", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).format(date);
+  }
 
   return (
     <motion.div
@@ -29,14 +43,14 @@ const ActivityItem = ({ event, i }: AcctivityProps) => {
       shadow-[0_0_20px_rgba(0,212,255,0.3)] shadow-md flex flex-col backdrop-blur-sm p-3 text-white/70"
     >
       <div className="flex items-center">
-        <p className="text-sm font-medium">06/04/2026 </p>
+        <p className="text-sm font-medium">{date}</p>
         <div className="h-[2px] flex-1 bg-gradient-to-r from-[#00d4ff40] to-transparent ml-4"></div>
       </div>
       <div className="mt-2">
         <p>
-          {name} <span className="text-cyan-400">{eventAction}</span>{" "}
-          {eventAction === "created" ? "new " : ""}
-          <span className="font-bold text-white">{eventSection}</span>
+          <span className="text-cyan-400">{action}</span>{" "}
+          <span className="font-bold text-white">{section}</span>
+          {target ? `: ${target}` : ""}
         </p>
       </div>
     </motion.div>

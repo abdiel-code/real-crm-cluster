@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ActivityItem from "./ActivityItem";
+import { getSocket } from "../../lib/socket";
 
 export type ActivityEvent = {
   event: string;
@@ -10,19 +11,39 @@ export type ActivityEvent = {
 };
 
 const RecentCard = () => {
-  const [events, setEvents] = useState<ActivityEvent[]>([
-    {
-      event: "BUSINESS_CREATED",
-      payload: { id: 1, name: "John" },
-      timestamp: new Date("01/04/1998"),
-    },
+  const [events, setEvents] = useState<ActivityEvent[]>([]);
 
-    {
-      event: "ACCOUNT_DELETED",
-      payload: { id: 2, name: "John" },
-      timestamp: new Date("01/04/1998"),
-    },
-  ]);
+  // Get events from localStorage
+  useEffect(() => {
+    const stored = localStorage.getItem("recent_activity");
+    if (stored) {
+      setEvents(JSON.parse(stored));
+    }
+  }, []);
+
+  // Set events to localStorage
+  useEffect(() => {
+    localStorage.setItem("recent_activity", JSON.stringify(events));
+  }, [events]);
+
+  // Connect to socket
+  useEffect(() => {
+    const socket = getSocket();
+    console.log("Socket Connected");
+
+    socket.onmessage = (event) => {
+      console.log("Get a messsage from the server: ", event);
+
+      const parsed = JSON.parse(event.data);
+      const newEvent = {
+        event: parsed.event,
+        payload: parsed.payload,
+        timestamp: new Date(),
+      };
+
+      setEvents((prev) => [...prev, newEvent]);
+    };
+  }, []);
 
   return (
     <div
