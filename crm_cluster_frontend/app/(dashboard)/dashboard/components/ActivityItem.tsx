@@ -7,7 +7,6 @@ type AcctivityProps = {
 
 const ActivityItem = ({ event, i }: AcctivityProps) => {
   const getActivityLabel = (event: any, payload: any) => {
-    console.log("event", event);
     const parts = event.event?.split("_");
     const section =
       parts[0].charAt(0).toUpperCase() + parts[0].slice(1).toLowerCase();
