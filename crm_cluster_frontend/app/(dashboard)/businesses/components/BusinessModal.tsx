@@ -49,6 +49,14 @@ const BusinessModal = ({
         stage: business.stage,
         contact_id: business.contact_id || 0,
       });
+    } else {
+      setMessage("");
+      setFormData({
+        title: "",
+        amount: "",
+        stage: "prospect",
+        contact_id: 0,
+      });
     }
   }, [business]);
 
@@ -56,6 +64,16 @@ const BusinessModal = ({
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
+    setMessage("");
+
+    if (name === "amount") {
+      const validValue = value.replace(/[^0-9.]/g, "");
+      if ((validValue.match(/\./g) || []).length > 1) return;
+
+      setFormData((prev) => ({ ...prev, [name]: validValue }));
+      return;
+    }
+
     setFormData((prev) => ({
       ...prev,
       [name]: name === "contact_id" ? Number(value) : value,
@@ -115,21 +133,15 @@ const BusinessModal = ({
       setFormData({
         title: "",
         amount: "",
-        stage: "Discovery",
+        stage: "prospect",
         contact_id: 0,
       });
       setMessage("");
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.status === 409) {
         setMessage("A business with this information already exists.");
-        setTimeout(() => {
-          setMessage("");
-        }, 3000);
       } else {
         setMessage("Server error. Please try again");
-        setTimeout(() => {
-          setMessage("");
-        }, 3000);
       }
     } finally {
       setIsLoading(false);
@@ -144,7 +156,7 @@ const BusinessModal = ({
     >
       <form
         onSubmit={handleSubmit}
-        className={`bg-[#0d1f3c] border-2 border-[#00d4ff40] rounded-md p-6 flex flex-col gap-4 w-full max-w-sm transform transition-all duration-300 ${
+        className={`bg-[#0d1f3c] border-2 border-cyan-500 rounded-md p-6 flex flex-col gap-4 w-full max-w-sm transform transition-all duration-300 ${
           isToggled
             ? "translate-y-0 scale-100 opacity-100"
             : "translate-y-4 scale-95 opacity-0"
@@ -156,7 +168,6 @@ const BusinessModal = ({
         <div>
           <label
             htmlFor="title"
-            id="title"
             className="text-white/60 text-sm font-semibold"
           >
             Title
@@ -167,16 +178,16 @@ const BusinessModal = ({
             id="title"
             name="title"
             onChange={handleChange}
-            className="w-full bg-transparent border-2 border-[#00d4ff40] rounded px-3 py-2 text-white 
-            focus:outline-none focus:border-[#00d4ff80] focus:shadow-[0_0_10px_rgba(0,212,255,0.2)] 
-            transition-all duration-300"
+            disabled={isLoading}
+            className="w-full bg-transparent border-2 border-cyan-500/30 rounded px-3 py-2 text-white 
+            focus:outline-none focus:border-cyan-500 focus:shadow-[0_0_10px_rgba(0,212,255,0.5)]
+            transition-all duration-300 disabled:opacity-50"
           />
         </div>
 
         <div>
           <label
             htmlFor="amount"
-            id="amount"
             className="text-white/60 text-sm font-semibold"
           >
             Amount
@@ -187,16 +198,16 @@ const BusinessModal = ({
             id="amount"
             name="amount"
             onChange={handleChange}
-            className="w-full bg-transparent border-2 border-[#00d4ff40] rounded px-3 py-2 text-white 
-            focus:outline-none focus:border-[#00d4ff80] focus:shadow-[0_0_10px_rgba(0,212,255,0.2)] 
-            transition-all duration-300"
+            disabled={isLoading}
+            className="w-full bg-transparent border-2 border-cyan-500/30 rounded px-3 py-2 text-white 
+            focus:outline-none focus:border-cyan-500 focus:shadow-[0_0_10px_rgba(0,212,255,0.5)]
+            transition-all duration-300 disabled:opacity-50"
           />
         </div>
 
         <div>
           <label
             htmlFor="stage"
-            id="stage"
             className="text-white/60 text-sm font-semibold"
           >
             Stage
@@ -207,7 +218,9 @@ const BusinessModal = ({
             id="stage"
             value={formData.stage}
             onChange={handleChange}
-            className="w-full bg-[#0d1f3c] border-2 border-[#00d4ff40] rounded px-3 py-2 text-white focus:outline-none focus:border-[#00d4ff80]"
+            disabled={isLoading}
+            className="w-full bg-[#0d1f3c] border-2 border-cyan-500/30 rounded px-3 py-2 text-white focus:outline-none 
+            focus:border-cyan-500 disabled:opacity-50 focus:shadow-[0_0_10px_rgba(0,212,255,0.5)]"
           >
             {stages.map((stage) => (
               <option key={stage} value={stage}>
@@ -219,8 +232,7 @@ const BusinessModal = ({
 
         <div>
           <label
-            htmlFor="stage"
-            id="stage"
+            htmlFor="contact-id"
             className="text-white/60 text-sm font-semibold"
           >
             Contacts
@@ -230,8 +242,10 @@ const BusinessModal = ({
             id="contact_id"
             value={formData.contact_id ?? 0}
             onChange={handleChange}
-            className="w-full bg-[#0d1f3c] border-2 border-[#00d4ff40] rounded px-3 py-2 text-white 
-          focus:outline-none focus:border-[#00d4ff80] transition-all duration-300 cursor-pointer"
+            disabled={isLoading}
+            className="w-full bg-[#0d1f3c] border-2 border-cyan-500/30 rounded px-3 py-2 text-white 
+          focus:outline-none focus:border-cyan-500 transition-all duration-300 cursor-pointer disabled:opacity-50 
+          focus:shadow-[0_0_10px_rgba(0,212,255,0.5)]"
           >
             <option value={0}>No Contact</option>
             {contacts.map((contact) => (
@@ -245,7 +259,15 @@ const BusinessModal = ({
         <div className="flex gap-3">
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => {
+              onClose();
+              setFormData({
+                title: "",
+                amount: "",
+                stage: "prospect",
+                contact_id: 0,
+              });
+            }}
             className="flex-1 border-2 border-white/20 rounded p-2 text-white/60 
     hover:bg-[#00d4ff10] cursor-pointer transition-all duration-300"
           >
@@ -255,7 +277,7 @@ const BusinessModal = ({
             type="submit"
             disabled={isLoading}
             className="flex-1 border-2 border-cyan-500 rounded p-2 text-white cursor-pointer 
-    hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] 
+    hover:shadow-[0_0_20px_rgba(0,212,255,0.5)] 
     disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
           >
             {isLoading ? "Loading..." : business ? "Edit" : "Create"}
