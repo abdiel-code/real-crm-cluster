@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import axios from "axios";
 
 const Login = () => {
@@ -38,10 +39,7 @@ const Login = () => {
         type: "Error",
         msg: "All fields must be filled and meet the requirements",
       });
-
-      setTimeout(() => {
-        setMessage({ type: "", msg: "" });
-      }, 3000);
+      setIsLoading(false);
       return;
     }
 
@@ -52,10 +50,7 @@ const Login = () => {
         type: "Error",
         msg: "Email is not valid",
       });
-
-      setTimeout(() => {
-        setMessage({ type: "", msg: "" });
-      }, 3000);
+      setIsLoading(false);
       return;
     }
 
@@ -92,9 +87,6 @@ const Login = () => {
           msg: "There is an error on the server. Please, try again.",
         });
       }
-      setTimeout(() => {
-        setMessage({ type: "", msg: "" });
-      }, 3000);
       return;
     } finally {
       setIsLoading(false);
@@ -102,7 +94,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-grid flex items-center justify-center">
+    <div className="min-h-screen bg-grid flex items-center justify-center flex-col">
       <form
         onSubmit={handleSubmit}
         className="bg-[#00d4ff1a] backdrop-blur-xs rounded-md border-2 border-[#00d4ff40] hover:border-[#00d4ff80] 
@@ -113,7 +105,7 @@ const Login = () => {
 
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           maxLength={255}
           id="email"
           name="email"
@@ -151,7 +143,7 @@ const Login = () => {
           type="submit"
           disabled={isLoading}
           className="border-2 border-cyan-500 rounded p-2 cursor-pointer 
-  hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] 
+  hover:shadow-[0_0_20px_rgba(0,212,255,0.5)] 
   disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? "Loading..." : "Login"}
@@ -159,12 +151,21 @@ const Login = () => {
 
         {message.msg && (
           <p
-            className={`${message.type === "Error" ? "text-red-500" : "text-cyan-500"}`}
+            className={`text-sm ${message.type === "Error" ? "text-red-500" : "text-cyan-500"}`}
           >
             {message.msg}
           </p>
         )}
       </form>
+      <p className="mt-3 text-white text-sm">
+        Don't have an account?{" "}
+        <Link
+          href="/register"
+          className="text-cyan-500 hover:underline hover:text-cyan-400 transition-colors"
+        >
+          Register
+        </Link>
+      </p>
     </div>
   );
 };

@@ -10,15 +10,32 @@ import { FaSearch } from "react-icons/fa";
 const Contacts = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [accounts, setAccounts] = useState<Account[]>([]);
+  const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [isToggled, setIsToggled] = useState(false);
 
   // UseEffects ----------------------------
 
-  // Fetch Contacts UseEffect
+  // Fetch useEffect
   useEffect(() => {
-    fetchContacts();
+    fetch();
   }, []);
+
+  // Fetch Everything
+  const fetch = async () => {
+    setIsLoading(true);
+    setMessage("");
+    try {
+      await Promise.all([fetchContacts(), fetchAccounts()]);
+    } catch (error) {
+      setMessage(
+        "Could not load information. Please check your connection or try again.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // Fetch Contacts
   const fetchContacts = async () => {
@@ -32,33 +49,31 @@ const Contacts = () => {
 
       console.log("Response: ", res.data);
 
-      // Add data to the mock info
       setContacts(res.data?.payload);
     } catch (error) {
       console.log("Error while getting info: ", error);
+      throw error;
     }
   };
 
   // Fetch Accounts
-  useEffect(() => {
-    const fetchAccounts = async () => {
-      try {
-        const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/accounts`,
-          {
-            withCredentials: true,
-          },
-        );
+  const fetchAccounts = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/accounts`,
+        {
+          withCredentials: true,
+        },
+      );
 
-        console.log("Response: ", res.data);
+      console.log("Response: ", res.data);
 
-        setAccounts(res.data?.payload);
-      } catch (error) {
-        console.log("Error while getting info: ", error);
-      }
-    };
-    fetchAccounts();
-  }, []);
+      setAccounts(res.data?.payload);
+    } catch (error) {
+      console.log("Error while getting info: ", error);
+      throw error;
+    }
+  };
 
   // Filter Contacts
   const filteredContacts = contacts.filter((contact) =>
@@ -74,40 +89,54 @@ const Contacts = () => {
         <h1 className="text-xl">Contacts</h1>
         <button
           onClick={() => setIsToggled(true)}
-          className="border-2 border-[#00d4ff40] rounded px-2 py-2 hover:shadow-[0_0_10px_rgba(0,212,255,0.2)] cursor-pointer"
+          className=" border-2 border-cyan-500 rounded px-4 py-2 hover:shadow-[0_0_10px_rgba(0,212,255,0.5)] cursor-pointer transition-all duration-300"
         >
           + Add Contact
         </button>
       </div>
 
       {/* Search/Filter */}
-      <div className="mb-4 relative w-1/2">
+      <div className="mb-4 relative w-full md:w-1/2">
         <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
         <input
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => {
+            setSearchQuery(e.target.value);
+            setMessage("");
+          }}
           placeholder="Search contacts..."
-          className="w-full bg-transparent border-2 border-[#00d4ff40] rounded pl-9 pr-3 py-2 text-white 
-            focus:outline-none focus:border-[#00d4ff80] focus:shadow-[0_0_10px_rgba(0,212,255,0.2)] 
+          className="w-full bg-transparent border-2 border-cyan-500 rounded pl-9 pr-3 py-2 text-white 
+            focus:outline-none focus:shadow-[0_0_10px_rgba(0,212,255,0.5)] 
             transition-all duration-300"
         />
       </div>
 
+      {message && (
+        <p className="text-red-500 text-left m-2 text-sm font-medium">
+          {message}
+        </p>
+      )}
       {/* Table */}
-      <div>
-        {
-          <ContactsTable
-            contacts={filteredContacts}
-            accounts={accounts}
-            onSuccess={fetchContacts}
-          />
-        }
-      </div>
+      {isLoading ? (
+        <div className="flex justify-center items-center py-20 text-cyan-500">
+          <p className="animate-pulse">Loading contacts...</p>
+        </div>
+      ) : (
+        <div className="overflow-x-auto">
+          {
+            <ContactsTable
+              contacts={filteredContacts}
+              accounts={accounts}
+              onSuccess={fetch}
+            />
+          }
+        </div>
+      )}
 
       <ContactModal
         isToggled={isToggled}
         accounts={accounts}
-        onSuccess={fetchContacts}
+        onSuccess={fetch}
         onClose={() => setIsToggled(false)}
         contact={null}
       />
