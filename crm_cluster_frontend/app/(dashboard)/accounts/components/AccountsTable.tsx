@@ -24,6 +24,7 @@ const AccountsTable = ({ accounts, onSuccess }: TableProps) => {
   const onConfirm = async () => {
     if (isLoading) return;
     setIsLoading(true);
+    setMessage("");
     try {
       await axios.delete(
         `${process.env.NEXT_PUBLIC_API_URL}/accounts/${accountToDelete}`,
@@ -38,7 +39,7 @@ const AccountsTable = ({ accounts, onSuccess }: TableProps) => {
       if (axios.isAxiosError(error) && error.response?.status === 401) {
         setMessage("You are not authorized to delete this account");
       } else if (axios.isAxiosError(error) && error.response?.status === 404) {
-        setMessage("The account you are trying to delete does not long exists");
+        setMessage("The account you are trying to delete no longer exists");
       } else {
         setMessage("Server error. Please try again");
       }
@@ -60,10 +61,15 @@ const AccountsTable = ({ accounts, onSuccess }: TableProps) => {
   }
 
   return (
-    <div className="bg-[#00d4ff1a] backdrop-blur-xs rounded-md border-2 border-[#00d4ff40] overflow-hidden min-h-screen">
+    <div className="bg-cyan-500/10 backdrop-blur-xs rounded-md border-2 border-cyan-500/40 overflow-x-auto min-h-screen ">
+      {message && (
+        <div className="p-4 mb-2 bg-red-500/10 border-l-4 border-red-500 text-red-500 text-sm">
+          {message}
+        </div>
+      )}
       <table className="min-w-full">
         {/* Headers */}
-        <thead className="text-[#00d4ff] border-b-2 border-[#00d4ff40]">
+        <thead className="text-cyan-500 border-b-2 border-cyan-500/40">
           <tr>
             <th className="px-6 py-3 text-left text-sm font-semibold tracking-wider">
               Name
@@ -85,7 +91,7 @@ const AccountsTable = ({ accounts, onSuccess }: TableProps) => {
           {accounts.length === 0 ? (
             <tr>
               <td
-                colSpan={6}
+                colSpan={4}
                 className="text-center py-10 text-white/50 italic"
               >
                 No accounts found.
@@ -95,7 +101,7 @@ const AccountsTable = ({ accounts, onSuccess }: TableProps) => {
             accounts.map((account) => (
               <tr
                 key={account.id}
-                className="hover:bg-[#00d4ff10] transition-all duration-200 border-b border-[#00d4ff20]"
+                className="hover:bg-cyan-500/20 transition-all duration-200 border-b border-cyan-500/40"
               >
                 <td className="px-6 py-4 text-sm text-white/80">
                   {account.name}
@@ -115,11 +121,11 @@ const AccountsTable = ({ accounts, onSuccess }: TableProps) => {
                       )
                     }
                   >
-                    <BsThreeDots color="#00d4ff" />
+                    <BsThreeDots className="text-cyan-400" />
                   </button>
 
                   <div
-                    className={`absolute right-0 mt-1 bg-[#0d1f3c] border border-[#00d4ff40] rounded-md shadow-lg z-10 transform origin-top transition-all duration-300 ${
+                    className={`absolute right-0 mt-1 bg-[#0d1f3c] border border-cyan-500/40 rounded-md shadow-lg z-10 transform origin-top transition-all duration-300 ${
                       openMenuId === account.id
                         ? "translate-y-0 opacity-100"
                         : "translate-y-2 opacity-0 pointer-events-none"
@@ -127,22 +133,24 @@ const AccountsTable = ({ accounts, onSuccess }: TableProps) => {
                   >
                     {/* Butons */}
                     <button
-                      className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-white hover:bg-[#00d4ff10] cursor-pointer"
+                      className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-white hover:bg-cyan-500/10 cursor-pointer"
                       onClick={() => {
                         setAccountToEdit(account);
                         setIsEditOpen(true);
+                        setOpenMenuId(null);
                       }}
                     >
-                      <FaEdit color="#00d4ff" /> Edit
+                      <FaEdit className="text-cyan-400" /> Edit
                     </button>
                     <button
-                      className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-[#00d4ff10] cursor-pointer"
+                      className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-cyan-500/10 cursor-pointer"
                       onClick={() => {
                         setAccountToDelete(account.id);
                         setIsConfirmOpen(true);
+                        setOpenMenuId(null);
                       }}
                     >
-                      <FaTrash color="#f87171" /> Delete
+                      <FaTrash className="text-red-400" /> Delete
                     </button>
                   </div>
                 </td>
@@ -168,8 +176,6 @@ const AccountsTable = ({ accounts, onSuccess }: TableProps) => {
         onClose={() => setIsEditOpen(false)}
         account={accountToEdit}
       />
-
-      {message && <p className="text-red-500 text-sm">{message}</p>}
     </div>
   );
 };

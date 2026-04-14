@@ -6,10 +6,11 @@ import RecentCard from "./components/RecentCard";
 
 const DashboardPage = () => {
   const [data, setData] = useState({
-    accounts: { total: 0, history: [] },
-    businesses: { total: 0, history: [] },
-    contacts: { total: 0, history: [] },
+    accounts: { total: null, history: [] },
+    businesses: { total: null, history: [] },
+    contacts: { total: null, history: [] },
   });
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchSummary = async () => {
@@ -28,6 +29,7 @@ const DashboardPage = () => {
           });
         }
       } catch (error) {
+        setMessage("Failed to load dashboard summary. Please try again later.");
         console.error("Error:", error);
       }
     };
@@ -35,31 +37,35 @@ const DashboardPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-grid flex flex-col">
-      <div className="p-8">
-        <div className="grid grid-cols-3 gap-4 mb-8 perspective-[2000px]">
-          <GraphCard
-            history={data.accounts.history}
-            total={data.accounts.total}
-            index={1}
-            title="Accounts"
-          />
-          <GraphCard
-            history={data.businesses.history}
-            total={data.businesses.total}
-            index={2}
-            title="Businesses"
-          />
-          <GraphCard
-            history={data.contacts.history}
-            total={data.contacts.total}
-            index={3}
-            title="Contacts"
-          />
-        </div>
+    <div className="min-h-screen bg-grid p-4 md:p-8 flex flex-col gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 perspective-[2000px]">
+        <GraphCard
+          history={data.accounts.history}
+          total={data.accounts.total}
+          index={1}
+          title="Accounts"
+        />
+        <GraphCard
+          history={data.businesses.history}
+          total={data.businesses.total}
+          index={2}
+          title="Businesses"
+        />
+        <GraphCard
+          history={data.contacts.history}
+          total={data.contacts.total}
+          index={3}
+          title="Contacts"
+        />
       </div>
 
-      <div className="flex justify-center w-full flex-1 p-8 gap-4">
+      {message && (
+        <div className="p-4 mb-2 bg-red-500/10 border-l-4 border-red-500 text-red-500 text-sm text-center">
+          {message}
+        </div>
+      )}
+
+      <div className="flex justify-center w-full flex-1">
         <RecentCard />
       </div>
     </div>
