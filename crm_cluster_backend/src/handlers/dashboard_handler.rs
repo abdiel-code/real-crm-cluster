@@ -1,5 +1,5 @@
+use crate::AppState;
 use crate::handlers::auth_handler::Claims;
-use crate::{AppState, models::user};
 use axum::{Json, Router, extract::State, http::StatusCode, response::IntoResponse, routing::get};
 use std::sync::Arc;
 

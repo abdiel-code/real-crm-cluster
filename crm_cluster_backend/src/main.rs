@@ -11,7 +11,7 @@ use std::net::SocketAddr;
 use std::sync::Arc;
 use tokio::net::TcpListener;
 use tokio::sync::broadcast;
-use tower_http::cors::{Any, CorsLayer};
+use tower_http::cors::CorsLayer;
 
 // Get all models
 mod handlers;
@@ -40,6 +40,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let database_url = std::env::var("DATABASE_URL").expect("DATABASE_URL must be set");
     let pool = PgPoolOptions::new()
         .max_connections(10)
+        .acquire_timeout(std::time::Duration::from_secs(5))
         .connect(&database_url)
         .await
         .expect("Failed to create database pool");
@@ -62,7 +63,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Config CORS
     let cors = CorsLayer::new()
-        .allow_origin(frontend_url.parse::<HeaderValue>().unwrap())
+        .allow_origin(
+            frontend_url
+                .parse::<HeaderValue>()
+                .map_err(|_| "Invalid FRONTEND_URL format")?,
+        )
         .allow_methods([
             Method::GET,
             Method::POST,

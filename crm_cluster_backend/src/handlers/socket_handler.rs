@@ -1,10 +1,13 @@
 // src/handlers/socket_handler.rs
+use crate::AppState;
 use axum::{
-    extract::{State, ws::{Message,WebSocket, WebSocketUpgrade}},
+    extract::{
+        State,
+        ws::{Message, WebSocket, WebSocketUpgrade},
+    },
     response::IntoResponse,
 };
 use std::sync::Arc;
-use crate::{AppState, SocketMessage};
 
 async fn handle_socket(mut socket: WebSocket, state: Arc<AppState>) {
     let mut rx = state.tx.subscribe();
@@ -25,4 +28,3 @@ pub async fn ws_handler(
 ) -> impl IntoResponse {
     ws.on_upgrade(|socket| handle_socket(socket, state))
 }
-

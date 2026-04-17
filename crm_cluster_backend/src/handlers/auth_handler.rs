@@ -4,12 +4,12 @@ use axum::{
     Json, Router,
     extract::{FromRequestParts, State},
     http::{StatusCode, header, request::Parts},
-    response::{IntoResponse, Response},
-    routing::{get, post},
+    response::IntoResponse,
+    routing::post,
 };
 use axum_extra::extract::cookie::{Cookie, CookieJar, SameSite};
 use bcrypt::{DEFAULT_COST, hash, verify};
-use jsonwebtoken::{Algorithm, DecodingKey, EncodingKey, Header, Validation, decode, encode};
+use jsonwebtoken::{DecodingKey, EncodingKey, Header, Validation, decode, encode};
 use std::sync::Arc;
 
 // Extractor

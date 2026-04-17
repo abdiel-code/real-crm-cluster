@@ -1,5 +1,4 @@
 use crate::AppState;
-use crate::SocketMessage;
 use crate::models::user::User;
 use axum::{Json, Router, extract::State, http::StatusCode, response::IntoResponse, routing::get};
 use std::sync::Arc;
