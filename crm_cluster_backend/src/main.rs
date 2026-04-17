@@ -57,9 +57,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         jwt_secret,
     });
 
+    // Get Frontend URL
+    let frontend_url = std::env::var("FRONTEND_URL").expect("FRONTEND_URL must be set");
+
     // Config CORS
     let cors = CorsLayer::new()
-        .allow_origin("http://localhost:3000".parse::<HeaderValue>().unwrap())
+        .allow_origin(frontend_url.parse::<HeaderValue>().unwrap())
         .allow_methods([
             Method::GET,
             Method::POST,
@@ -83,8 +86,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .layer(cors)
         .with_state(shared_state);
 
+    // Config Port
+    let port = std::env::var("PORT").unwrap_or_else(|_| "4000".to_string());
+
     // Config address
-    let addr = SocketAddr::from(([127, 0, 0, 1], 4000));
+    let addr: SocketAddr = format!("0.0.0.0:{}", port).parse()?;
 
     // Config listener
     let listener = TcpListener::bind(addr).await?;
