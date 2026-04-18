@@ -94,7 +94,7 @@ pub async fn register(
 
     // Validate existing mail
     let existing = sqlx::query_scalar::<_, i64>("SELECT COUNT(*) FROM users WHERE email = $1")
-        .bind(&payload.email)
+        .bind(&payload.email.to_lowercase())
         .fetch_one(&state.db_pool)
         .await
         .map_err(|e| {
@@ -120,7 +120,7 @@ pub async fn register(
 
     let user = sqlx::query_as::<_, UserResponse>("INSERT INTO users (name, email, password_hash) VALUES ($1, $2, $3) RETURNING id, name, email, created_at")
     .bind(payload.name)
-    .bind(payload.email)
+    .bind(payload.email.to_lowercase())
     .bind(hashed_password)
     .fetch_one(&state.db_pool)
     .await
@@ -148,7 +148,7 @@ pub async fn login(
 ) -> Result<impl IntoResponse, (StatusCode, String)> {
     // Find User
     let user = sqlx::query_as::<_, User>("SELECT * FROM users WHERE email = $1")
-        .bind(&payload.email)
+        .bind(&payload.email.to_lowercase())
         .fetch_one(&state.db_pool)
         .await
         .map_err(|_| (StatusCode::UNAUTHORIZED, "INVALID_CREDENTIALS".to_string()))?;
