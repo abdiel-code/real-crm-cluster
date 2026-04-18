@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle">
+  <title id="logoTitle">CRM Cluster logo</title>
+  
+  <style type="text/css">
+    /* Animación de pulso para nodos */
+    .node { transform-origin: center; animation: pulse 2.4s infinite ease-in-out; }
+    .node:nth-child(1){ animation-delay: 0s; }
+    .node:nth-child(2){ animation-delay: .2s; }
+    .node:nth-child(3){ animation-delay: .4s; }
+    .node:nth-child(4){ animation-delay: .6s; }
+    .node:nth-child(5){ animation-delay: .8s; }
+    .node:nth-child(6){ animation-delay: 1s; }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.18); opacity: .85; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    text { font-family: "Inter", Arial, sans-serif; font-weight: bold; fill: white; font-size: 12px; text-anchor: middle; }
+  </style>
+
+  <!-- líneas iguales distribuidas equitativamente -->
+  <g id="lines" stroke="#577399" stroke-width="2" stroke-linecap="round" opacity="0.9">
+    <line x1="100" y1="100" x2="100" y2="50" />
+    <line x1="100" y1="100" x2="143.3" y2="75" />
+    <line x1="100" y1="100" x2="143.3" y2="125" />
+    <line x1="100" y1="100" x2="100" y2="150" />
+    <line x1="100" y1="100" x2="56.7" y2="125" />
+    <line x1="100" y1="100" x2="56.7" y2="75" />
+  </g>
+
+  <!-- nodos exteriores -->
+  <g id="nodes" fill="#577399">
+    <circle class="node" cx="100" cy="50" r="8"/>
+    <circle class="node" cx="143.3" cy="75" r="8"/>
+    <circle class="node" cx="143.3" cy="125" r="8"/>
+    <circle class="node" cx="100" cy="150" r="8"/>
+    <circle class="node" cx="56.7" cy="125" r="8"/>
+    <circle class="node" cx="56.7" cy="75" r="8"/>
+  </g>
+
+  <!-- núcleo central -->
+  <g id="core">
+    <circle cx="100" cy="100" r="20" fill="#577399"/>
+    <text x="100" y="106">CRM</text>
+  </g>
+</svg>

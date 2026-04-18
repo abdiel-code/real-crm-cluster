@@ -23,7 +23,6 @@ const iconMap: Record<string, React.ReactNode> = {
   contacts: <FaUser color="#00d4ff" />,
   accounts: <FaBuilding color="#00d4ff" />,
   businesses: <FaBriefcase color="#00d4ff" />,
-  settings: <FaCog color="#00d4ff" />,
 };
 
 const items = [
@@ -32,8 +31,6 @@ const items = [
   { alt: "accounts", label: "Accounts", to: "/accounts" },
   { alt: "businesses", label: "Businesses", to: "/businesses" },
 ];
-
-const settingItems = [{ alt: "settings", label: "Settings", to: "/Settings" }];
 
 type SideBarProps = {
   isCollapsed: boolean;
@@ -95,16 +92,6 @@ const SideBar = ({ isCollapsed, toggleCollapsed }: SideBarProps) => {
         <FaSignOutAlt color="#00d4ff" />
         <p>{isCollapsed ? "" : "Logout"}</p>
       </button>
-
-      {settingItems.map((item) => (
-        <SideBarItem
-          key={item.alt}
-          icon={iconMap[item.alt]}
-          label={item.label}
-          to={`/${item.alt}`}
-          isCollapsed={isCollapsed}
-        />
-      ))}
 
       <div className="mt-auto flex items-center justify-between px-4 pb-4">
         <button onClick={toggleCollapsed} className="cursor-pointer ml-auto">
