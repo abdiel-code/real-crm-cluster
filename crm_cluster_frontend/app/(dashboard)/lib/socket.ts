@@ -4,7 +4,10 @@ let socket: WebSocket | null = null;
 
 export const getSocket = () => {
   if (!socket) {
-    const url = `ws://localhost:4000/ws`;
+    const url =
+      process.env
+        .NEXT_PUBLIC_API_URL!.replace("https://", "wss://")
+        .replace("http://", "ws://") + "/ws";
 
     socket = new WebSocket(url);
   }

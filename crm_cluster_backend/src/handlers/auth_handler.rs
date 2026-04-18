@@ -192,7 +192,8 @@ pub async fn login(
 
     let cookie = Cookie::build(("token", token))
         .http_only(true)
-        .same_site(SameSite::Strict)
+        .same_site(SameSite::None)
+        .secure(true)
         .path("/")
         .max_age(time::Duration::days(7))
         .build();
