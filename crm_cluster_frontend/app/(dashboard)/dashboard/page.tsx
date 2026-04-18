@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import GraphCard from "./components/GraphCard";
 import RecentCard from "./components/RecentCard";
+import { getSocket } from "../lib/socket";
 
 const DashboardPage = () => {
   const [data, setData] = useState({
@@ -11,28 +12,45 @@ const DashboardPage = () => {
     contacts: { total: null, history: [] },
   });
   const [message, setMessage] = useState("");
+  const [isConnected, setIsConnected] = useState(false);
+
+  const fetchSummary = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/dashboard/summary`,
+        { withCredentials: true },
+      );
+
+      if (response.status === 200) {
+        const { accounts, contacts, businesses } = response.data.payload;
+        setData({
+          accounts: accounts,
+          businesses: businesses,
+          contacts: contacts,
+        });
+      }
+    } catch (error) {
+      setMessage("Failed to load dashboard summary. Please try again later.");
+      console.error("Error:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchSummary = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/dashboard/summary`,
-          { withCredentials: true },
-        );
+    const socket = getSocket();
 
-        if (response.status === 200) {
-          const { accounts, contacts, businesses } = response.data.payload;
-          setData({
-            accounts: accounts,
-            businesses: businesses,
-            contacts: contacts,
-          });
-        }
+    socket.onopen = () => setIsConnected(true);
+    socket.onclose = () => setIsConnected(false);
+
+    socket.onmessage = (event) => {
+      try {
+        fetchSummary();
       } catch (error) {
-        setMessage("Failed to load dashboard summary. Please try again later.");
-        console.error("Error:", error);
+        console.error("Error fetching data", error);
       }
     };
+  }, []);
+
+  useEffect(() => {
     fetchSummary();
   }, []);
 
