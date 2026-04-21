@@ -39,6 +39,7 @@ const RecentCard = () => {
   useEffect(() => {
     const socket = getSocket();
 
+    setIsConnected(socket.readyState === WebSocket.OPEN);
     socket.onopen = () => setIsConnected(true);
     socket.onclose = () => setIsConnected(false);
 
