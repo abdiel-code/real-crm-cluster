@@ -42,7 +42,7 @@ const RecentCard = () => {
     socket.onopen = () => setIsConnected(true);
     socket.onclose = () => setIsConnected(false);
 
-    socket.onmessage = (event) => {
+    const handleMessage = (event: MessageEvent) => {
       try {
         const parsed = JSON.parse(event.data);
         const newEvent = {
@@ -54,6 +54,12 @@ const RecentCard = () => {
       } catch (error) {
         console.error("Socket message parsing error:", error);
       }
+    };
+
+    socket.addEventListener("message", handleMessage);
+
+    return () => {
+      socket.removeEventListener("message", handleMessage);
     };
   }, []);
 

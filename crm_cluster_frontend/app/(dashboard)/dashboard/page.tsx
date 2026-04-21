@@ -41,12 +41,14 @@ const DashboardPage = () => {
     socket.onopen = () => setIsConnected(true);
     socket.onclose = () => setIsConnected(false);
 
-    socket.onmessage = (event) => {
-      try {
-        fetchSummary();
-      } catch (error) {
-        console.error("Error fetching data", error);
-      }
+    const handleMessage = () => {
+      fetchSummary();
+    };
+
+    socket.addEventListener("message", handleMessage);
+
+    return () => {
+      socket.removeEventListener("message", handleMessage);
     };
   }, []);
 
