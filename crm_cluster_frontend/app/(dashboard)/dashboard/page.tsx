@@ -39,17 +39,22 @@ const DashboardPage = () => {
     const socket = getSocket();
 
     setIsConnected(socket.readyState === WebSocket.OPEN);
-    socket.onopen = () => setIsConnected(true);
-    socket.onclose = () => setIsConnected(false);
+
+    const handleOpen = () => setIsConnected(true);
+    const handleClose = () => setIsConnected(false);
 
     const handleMessage = () => {
       fetchSummary();
     };
 
     socket.addEventListener("message", handleMessage);
+    socket.addEventListener("open", handleOpen);
+    socket.addEventListener("close", handleClose);
 
     return () => {
       socket.removeEventListener("message", handleMessage);
+      socket.removeEventListener("open", handleOpen);
+      socket.removeEventListener("close", handleClose);
     };
   }, []);
 
