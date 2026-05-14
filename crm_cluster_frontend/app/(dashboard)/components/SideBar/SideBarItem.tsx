@@ -19,7 +19,7 @@ const SideBarItem = ({ icon, label, to, isCollapsed }: SideBarItemProps) => {
         isActive
           ? "bg-[#00d4ff20] text-cyan-400 border-l-2 border-cyan-400"
           : "text-white/60 hover:bg-[#00d4ff10] hover:text-white"
-      } ${isCollapsed ? "justify-center" : ""}`}
+      } ${isCollapsed ? "justify-center hidden md:block" : ""}`}
     >
       <div className="text-xl">{icon}</div>
       <h2>{!isCollapsed && label}</h2>

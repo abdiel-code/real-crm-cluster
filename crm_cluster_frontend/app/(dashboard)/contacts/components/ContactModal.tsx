@@ -134,13 +134,13 @@ const ContactModal = ({
 
   return (
     <div
-      className={`  fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm transition-all duration-300  ${
+      className={`  fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-300 z-55  ${
         isToggled ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
       <form
         onSubmit={handleSubmit}
-        className={` overflow-y-auto max-h-[90vh] bg-[#0d1f3c] border-2 border-cyan-500 rounded-md p-6 flex flex-col gap-4 w-full max-w-sm transform transition-all duration-300 ${
+        className={`  overflow-y-auto max-h-[90vh] bg-[#0d1f3c] border-2 border-cyan-500 rounded-md p-6 flex flex-col gap-4 w-full max-w-sm transform transition-all duration-300 ${
           isToggled
             ? "translate-y-0 scale-100 opacity-100"
             : "translate-y-4 scale-95 opacity-0"

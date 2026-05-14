@@ -54,7 +54,7 @@ const Accounts = () => {
   return (
     <div className="p-8 bg-grid min-h-screen text-white">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col md:flex-row items-center justify-between mb-6">
         <h1 className="text-xl">Accounts</h1>
         <button
           onClick={() => setIsToggled(true)}

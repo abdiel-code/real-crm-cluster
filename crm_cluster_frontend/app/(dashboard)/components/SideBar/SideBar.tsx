@@ -2,14 +2,8 @@ import SideBarItem from "./SideBarItem";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import {
-  FaEnvelope,
-  FaTasks,
-  FaUsers,
   FaPaw,
-  FaUsersCog,
   FaSignOutAlt,
-  FaSignInAlt,
-  FaCog,
   FaChartBar,
   FaUser,
   FaBuilding,
@@ -59,9 +53,9 @@ const SideBar = ({ isCollapsed, toggleCollapsed }: SideBarProps) => {
 
   return (
     <div
-      className={`relative top-0 left-0 h-full bg-[#0d1f3c] z-50
+      className={`relative top-0 left-0 bg-[#0d1f3c] z-50
       transition-all duration-300 ease-in-out
-      ${isCollapsed ? "w-16" : "w-50"}
+      ${isCollapsed ? "w-0 md:w-16 h-0 md:h-full" : "w-50"}
       border-r-2 border-[#495867]
       flex flex-col gap-4 pt-4 `}
     >
@@ -93,7 +87,10 @@ const SideBar = ({ isCollapsed, toggleCollapsed }: SideBarProps) => {
         <p>{isCollapsed ? "" : "Logout"}</p>
       </button>
 
-      <div className="mt-auto flex items-center justify-between px-4 pb-4">
+      <div
+        className={`mt-auto flex items-center justify-between px-4 pb-4 
+          ${isCollapsed ? "bg-[#0d1f3c] md:bg-none rounded border-2 border-[#495867] md:border-none pt-4 fixed md:relative" : "relative"}`}
+      >
         <button onClick={toggleCollapsed} className="cursor-pointer ml-auto">
           {isCollapsed ? (
             <FaChevronRight color="white" />
