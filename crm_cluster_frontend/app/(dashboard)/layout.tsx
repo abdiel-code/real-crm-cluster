@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 import SideBar from "./components/SideBar/SideBar";
+import { SocketProvider } from "./lib/SocketContext";
 
 export default function DahsboardLayout({
   children,
@@ -20,7 +21,9 @@ export default function DahsboardLayout({
         isCollapsed={isCollapsed}
         toggleCollapsed={toggleCollapsed}
       ></SideBar>
-      <main className="flex-1 overflow-auto">{children}</main>
+      <SocketProvider>
+        <main className="flex-1 overflow-auto">{children}</main>
+      </SocketProvider>
     </div>
   );
 }

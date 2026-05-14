@@ -2,71 +2,14 @@
 
 import { useEffect, useState } from "react";
 import ActivityItem from "./ActivityItem";
-import { getSocket } from "../../lib/socket";
-
-export type ActivityEvent = {
-  event: string;
-  payload: any;
-  timestamp: Date;
-};
+import { useSocket } from "../../lib/SocketContext";
 
 const RecentCard = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [events, setEvents] = useState<ActivityEvent[]>(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("recent_activity");
-      try {
-        return stored ? JSON.parse(stored) : [];
-      } catch {
-        return [];
-      }
-    }
-    return [];
-  });
-
-  const [isConnected, setIsConnected] = useState(false);
-
-  // Set events to localStorage
-  useEffect(() => {
-    localStorage.setItem("recent_activity", JSON.stringify(events));
-  }, [events]);
+  const { events, isConnected } = useSocket();
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
-
-  // Connect to socket
-  useEffect(() => {
-    const socket = getSocket();
-
-    setIsConnected(socket.readyState === WebSocket.OPEN);
-
-    const handleOpen = () => setIsConnected(true);
-    const handleClose = () => setIsConnected(false);
-
-    const handleMessage = (event: MessageEvent) => {
-      try {
-        const parsed = JSON.parse(event.data);
-        const newEvent = {
-          event: parsed.event,
-          payload: parsed.payload,
-          timestamp: new Date(),
-        };
-        setEvents((prev) => [newEvent, ...prev].slice(0, 20));
-      } catch (error) {
-        console.error("Socket message parsing error:", error);
-      }
-    };
-
-    socket.addEventListener("message", handleMessage);
-    socket.addEventListener("open", handleOpen);
-    socket.addEventListener("close", handleClose);
-
-    return () => {
-      socket.removeEventListener("message", handleMessage);
-      socket.removeEventListener("open", handleOpen);
-      socket.removeEventListener("close", handleClose);
-    };
   }, []);
 
   if (!isMounted) {

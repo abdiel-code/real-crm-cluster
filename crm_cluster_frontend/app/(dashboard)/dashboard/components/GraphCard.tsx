@@ -21,7 +21,6 @@ const GraphCard = (props: GraphCardProps) => {
 
   const history = props.history || [0, 0, 0, 0, 0, 0, 0];
   const hasHistory = props.history && props.history.length > 1;
-  console.log(hasHistory);
   const maxValue = Math.max(...history) || 1;
   const lastValue = history[history.length - 1] || 0;
   const prevValue = history[history.length - 2] || 0;

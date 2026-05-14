@@ -47,8 +47,6 @@ const Contacts = () => {
         },
       );
 
-      console.log("Response: ", res.data);
-
       setContacts(res.data?.payload);
     } catch (error) {
       console.log("Error while getting info: ", error);
@@ -65,8 +63,6 @@ const Contacts = () => {
           withCredentials: true,
         },
       );
-
-      console.log("Response: ", res.data);
 
       setAccounts(res.data?.payload);
     } catch (error) {

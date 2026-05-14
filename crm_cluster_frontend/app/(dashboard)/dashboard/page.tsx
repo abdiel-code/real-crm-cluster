@@ -3,7 +3,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import GraphCard from "./components/GraphCard";
 import RecentCard from "./components/RecentCard";
-import { getSocket } from "../lib/socket";
 
 const DashboardPage = () => {
   const [data, setData] = useState({
@@ -12,7 +11,6 @@ const DashboardPage = () => {
     contacts: { total: null, history: [] },
   });
   const [message, setMessage] = useState("");
-  const [isConnected, setIsConnected] = useState(false);
 
   const fetchSummary = async () => {
     try {
@@ -34,29 +32,6 @@ const DashboardPage = () => {
       console.error("Error:", error);
     }
   };
-
-  useEffect(() => {
-    const socket = getSocket();
-
-    setIsConnected(socket.readyState === WebSocket.OPEN);
-
-    const handleOpen = () => setIsConnected(true);
-    const handleClose = () => setIsConnected(false);
-
-    const handleMessage = () => {
-      fetchSummary();
-    };
-
-    socket.addEventListener("message", handleMessage);
-    socket.addEventListener("open", handleOpen);
-    socket.addEventListener("close", handleClose);
-
-    return () => {
-      socket.removeEventListener("message", handleMessage);
-      socket.removeEventListener("open", handleOpen);
-      socket.removeEventListener("close", handleClose);
-    };
-  }, []);
 
   useEffect(() => {
     fetchSummary();

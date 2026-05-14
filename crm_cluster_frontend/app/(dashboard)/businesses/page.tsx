@@ -49,8 +49,6 @@ const Businesses = () => {
         },
       );
 
-      console.log("Response: ", res.data);
-
       // Add data to the mock info
       setBusinesses(res.data?.payload);
     } catch (error) {
