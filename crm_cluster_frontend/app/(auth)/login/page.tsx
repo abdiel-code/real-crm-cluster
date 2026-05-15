@@ -166,6 +166,15 @@ const Login = () => {
           Register
         </Link>
       </p>
+      <p className="mt-3 text-white text-sm">
+        Forgot password?{" "}
+        <Link
+          href="/forgot-password"
+          className="text-cyan-500 hover:underline hover:text-cyan-400 transition-colors"
+        >
+          Click here
+        </Link>
+      </p>
     </div>
   );
 };
