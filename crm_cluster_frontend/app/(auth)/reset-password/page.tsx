@@ -5,6 +5,17 @@ import { useState, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Link from "next/link";
+import { Suspense } from "react";
+
+const ResetPasswordPage = () => {
+  return (
+    <Suspense>
+      <ResetPassword />
+    </Suspense>
+  );
+};
+
+export default ResetPasswordPage;
 
 const ResetPassword = () => {
   const router = useRouter();
@@ -130,5 +141,3 @@ const ResetPassword = () => {
     </div>
   );
 };
-
-export default ResetPassword;
