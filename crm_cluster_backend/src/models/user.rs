@@ -8,4 +8,6 @@ pub struct User {
     pub email: String,
     pub password_hash: String,
     pub created_at: Option<chrono::DateTime<chrono::Utc>>,
+    pub reset_token: Option<String>,
+    pub reset_token_expires_at: Option<chrono::DateTime<chrono::Utc>>,
 }

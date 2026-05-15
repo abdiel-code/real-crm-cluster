@@ -73,6 +73,17 @@ pub struct Claims {
     pub exp: usize,
 }
 
+#[derive(serde::Deserialize)]
+pub struct ForgotPasswordRequest {
+    email: String,
+}
+
+#[derive(serde::Deserialize)]
+pub struct ResetPasswordRequest {
+    token: String,
+    new_password: String,
+}
+
 pub async fn register(
     State(state): State<Arc<AppState>>,
     Json(payload): Json<CreateUser>,
@@ -220,9 +231,122 @@ pub async fn logout() -> impl IntoResponse {
     )
 }
 
+pub async fn forgot_password(
+    State(state): State<Arc<AppState>>,
+    Json(payload): Json<ForgotPasswordRequest>,
+) -> Result<impl IntoResponse, (StatusCode, String)> {
+    let user = sqlx::query_as::<_, User>("SELECT * FROM users WHERE email = $1")
+        .bind(&payload.email.to_lowercase())
+        .fetch_optional(&state.db_pool)
+        .await
+        .map_err(|e| {
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                format!("DB_ERROR: {}", e),
+            )
+        })?;
+
+    if user.is_none() {
+        return Ok(Json(serde_json::json!({"message": "RESET_EMAIL_SENT"})));
+    }
+
+    let user = user.unwrap();
+
+    let token = uuid::Uuid::new_v4().to_string();
+    let expires_at = chrono::Utc::now() + chrono::Duration::minutes(15);
+
+    sqlx::query("UPDATE users SET reset_token = $1, reset_token_expires_at = $2 WHERE id = $3")
+        .bind(&token)
+        .bind(expires_at)
+        .bind(user.id)
+        .execute(&state.db_pool)
+        .await
+        .map_err(|e| {
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                format!("DB_ERROR: {}", e),
+            )
+        })?;
+
+    let resend_api_key = std::env::var("RESEND_API_KEY")
+        .map_err(|_e| (StatusCode::INTERNAL_SERVER_ERROR, "ENV_ERROR".to_string()))?;
+
+    let reset_link = format!("https://app.foxcoon.online/reset-password?token={}", token);
+
+    let client = reqwest::Client::new();
+    client
+        .post("https://api.resend.com/emails")
+        .header("Authorization", format!("Bearer {}", resend_api_key))
+        .json(&serde_json::json!({
+            "from": "noreplay@foxcoon.online",
+            "to": user.email,
+            "subject": "Password Recovery",
+            "html": format!(
+                "<p>Haz clic en el siguiente enlace para recuperar tu contraseña. Expira en 15 minutos.</p><a href=\"{}\">Recuperar contraseña</a>",
+                reset_link
+            )
+        }))
+        .send()
+        .await
+        .map_err(|e| (StatusCode::INTERNAL_SERVER_ERROR, format!("EMAIL_ERROR: {}", e)))?;
+
+    Ok(Json(serde_json::json!({"message": "RESET_EMAIL_SENT"})))
+}
+
+pub async fn reset_password(
+    State(state): State<Arc<AppState>>,
+    Json(payload): Json<ResetPasswordRequest>,
+) -> Result<impl IntoResponse, (StatusCode, String)> {
+    let user = sqlx::query_as::<_, User>("SELECT * FROM users WHERE reset_token = $1")
+        .bind(&payload.token)
+        .fetch_optional(&state.db_pool)
+        .await
+        .map_err(|e| {
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                format!("DB_ERROR: {}", e),
+            )
+        })?
+        .ok_or((StatusCode::BAD_REQUEST, "INVALID_TOKEN".to_string()))?;
+
+    let expires_at = user
+        .reset_token_expires_at
+        .ok_or((StatusCode::BAD_REQUEST, "INVALID_TOKEN".to_string()))?;
+
+    if chrono::Utc::now() > expires_at {
+        return Err((StatusCode::BAD_REQUEST, "TOKEN_EXPIRED".to_string()));
+    }
+
+    if payload.new_password.len() < 8 {
+        return Err((StatusCode::BAD_REQUEST, "INVALID_PASSWORD".to_string()));
+    }
+
+    let hashed = hash(&payload.new_password, DEFAULT_COST).map_err(|e| {
+        (
+            StatusCode::INTERNAL_SERVER_ERROR,
+            format!("PASSWORD_ERROR: {}", e),
+        )
+    })?;
+
+    sqlx::query(
+        "UPDATE users SET password_hash = $1, reset_token = NULL, reset_token_expires_at = NULL WHERE id = $2"
+    )
+    .bind(&hashed)
+    .bind(user.id)
+    .execute(&state.db_pool)
+    .await
+    .map_err(|e| (StatusCode::INTERNAL_SERVER_ERROR, format!("DB_ERROR: {}", e)))?;
+
+    Ok(Json(
+        serde_json::json!({"message": "PASSWORD_RESET_SUCCESS"}),
+    ))
+}
+
 pub fn router() -> Router<Arc<AppState>> {
     Router::new()
         .route("/register", post(register))
         .route("/login", post(login))
         .route("/logout", post(logout))
+        .route("/forgot-password", post(forgot_password))
+        .route("/reset-password", post(reset_password))
 }
